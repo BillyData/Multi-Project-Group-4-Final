@@ -102,3 +102,10 @@ body {
     color: #4ea161;
     text-decoration: none;
 }
+
+ul {
+    list-style-type: none; /* Removes the bullet points */
+}
+li {
+    color: red; /* Colors the text red */
+}

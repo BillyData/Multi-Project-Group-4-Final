@@ -24,14 +24,14 @@
           <br>
           Create a new account
         </h4>
-        <form class="form-box px-3" onsubmit="return validateForm()">
+        <form method="post" class="form-box px-3" onsubmit="return validateForm()">
           <div class="form-input">
             <span><i class="fa fa-user-o"></i></span>
             <input type="text" name="name" placeholder="Full Name" required>
           </div>
           <div class="form-input">
             <span><i class="fa fa-envelope-o"></i></span>
-            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="email" name="username" placeholder="Email Address" required>
           </div>
           <div class="form-input">
             <span><i class="fa fa-key"></i></span>
@@ -41,6 +41,17 @@
             <span><i class="fa fa-key"></i></span>
             <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
           </div>
+
+          {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+          {% endwith %}
+
 
           <div class="mb-3">
             <button type="submit" class="btn btn-block text-uppercase">

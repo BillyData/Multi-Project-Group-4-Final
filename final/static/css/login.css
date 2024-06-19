@@ -138,3 +138,10 @@ body {
 .form-box .btn-linkedin:hover{
   background: #e5e0e0;
 }
+
+ul {
+    list-style-type: none; /* Removes the bullet points */
+}
+li {
+    color: red; /* Colors the text red */
+}
