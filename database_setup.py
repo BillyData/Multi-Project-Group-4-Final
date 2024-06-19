@@ -7,7 +7,8 @@ def create_users_table():
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT NOT NULL UNIQUE,
-            password TEXT NOT NULL
+            password TEXT NOT NULL,
+            realname TEXT NOT NULL
         )
     ''')
     conn.commit()

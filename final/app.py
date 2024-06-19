@@ -37,12 +37,17 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
+        realname = request.form['name']
         username = request.form['username']
         password = request.form['password']
+        confirm_password = request.form['confirm_password']
         hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
         conn = get_db_connection()
+        if (password != confirm_password):
+            flash('Passwords do not match')
+            return redirect(url_for('register'))
         try:
-            conn.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, hashed_password))
+            conn.execute('INSERT INTO users (username, password, realname) VALUES (?, ?, ?)', (username, hashed_password, realname))
             conn.commit()
             conn.close()
             return redirect(url_for('login'))
