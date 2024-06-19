@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/icon.png') }}" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+      rel="stylesheet"
+    />
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/Bikey_landingpage.css') }}" />-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}">
+    <title>Bikey-Key to your successful operation</title>
+
+    <script defer src="{{ url_for('static', filename='js/Bikey_landingpage.js') }}"></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <img
+          src="{{ url_for('static', filename='img/logobikey.png') }}"
+          alt="Bikey logo"
+          class="nav__logo"
+          id="logo"
+          data-version-number="3.0"
+        />
+        <ul class="nav__links">
+          <li class="nav__item">
+            <a class="nav__link" href="#section--1">Features</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--2">Plans & Pricing</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--3">Testimonials</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#footer">Contact</a>
+          </li>
+          <li class="nav__item">
+            <button class="btn btn--show-modal" onclick="location.href='{{ url_for('login') }}'">Login or Register</button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header__title">
+        <!-- <h1 onclick="alert('HTML alert')"> -->
+        <h1>
+          <span class="highlight">Bikey:</span>
+          <br>
+          <!-- Green highlight effect -->
+          Where every ride begins.
+        </h1>
+        <h4>Elevating Your Cycling Experience with Expert Management Solutions.</h4>
+        <button class="btn--text btn--scroll-to">Learn more &DownArrow;</button>
+        <img
+          src="{{ url_for('static', filename='img/ridingbikeboy.jpg') }}"
+          class="header__img"
+          alt="Bikey"
+        />
+      </div>
+    </header>
+
+    <section class="section" id="section--1">
+      <div class="section__title">
+        <h2 class="section__description">Features</h2>
+        <h3 class="section__header">
+          Everything you need in a modern bike management app and more
+        </h3>
+      </div>
+
+      <div class="features">
+        <img
+          src="{{ url_for('static', filename='img/digital-lazy.jpg') }}"
+          data-src="{{ url_for('static', filename='img/digital.jpg') }}"
+          alt="Computer"
+          class="features__img lazy-img"
+        />
+        <div class="features__feature">
+          <div class="features__icon">
+            <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+              <g id="SVGRepo_iconCarrier"> <path d="M5.875 12.5729C5.30847 11.2498 5 9.84107 5 8.51463C5 4.9167 8.13401 2 12 2C15.866 2 19 4.9167 19 8.51463C19 12.0844 16.7658 16.2499 13.2801 17.7396C12.4675 18.0868 11.5325 18.0868 10.7199 17.7396C9.60664 17.2638 8.62102 16.5151 7.79508 15.6" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/> <path d="M14 9C14 10.1046 13.1046 11 12 11C10.8954 11 10 10.1046 10 9C10 7.89543 10.8954 7 12 7C13.1046 7 14 7.89543 14 9Z" stroke="#1C274C" stroke-width="1.5"/> <path d="M20.9605 15.5C21.6259 16.1025 22 16.7816 22 17.5C22 18.4251 21.3797 19.285 20.3161 20M3.03947 15.5C2.37412 16.1025 2 16.7816 2 17.5C2 19.9853 6.47715 22 12 22C13.6529 22 15.2122 21.8195 16.5858 21.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/> </g>
+              </svg>
+          </div>
+          <h5 class="features__header">Effortless Bike Oversight</h5>
+          <p>
+            Our Bikey app offers precise bike location tracking on an interactive map. Easily monitor and manage each bike in real-time, view current positions. Experience convenience and peace of mind with Bikey's bike tracking feature!
+          </p>
+        </div>
+
+        <div class="features__feature">
+          <div class="features__icon">
+            <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 18C11 18.5523 11.4477 19 12 19C12.5523 19 13 18.5523 13 18H11ZM12 13H13C13 12.7348 12.8946 12.4804 12.7071 12.2929L12 13ZM8.5 9.5L7.8415 8.74742C7.6332 8.92968 7.50976 9.19011 7.50055 9.46672C7.49134 9.74334 7.59719 10.0114 7.79289 10.2071L8.5 9.5ZM12.5 6L13.2593 5.34921C13.0855 5.1465 12.8379 5.02169 12.5716 5.00257C12.3053 4.98345 12.0424 5.07161 11.8415 5.24742L12.5 6ZM18.5 11C19.0523 11 19.5 10.5523 19.5 10C19.5 9.44772 19.0523 9 18.5 9V11ZM8 17C8 18.6569 6.65685 20 5 20V22C7.76142 22 10 19.7614 10 17H8ZM5 20C3.34315 20 2 18.6569 2 17H0C0 19.7614 2.23858 22 5 22V20ZM2 17C2 15.3431 3.34315 14 5 14V12C2.23858 12 0 14.2386 0 17H2ZM5 14C6.65685 14 8 15.3431 8 17H10C10 14.2386 7.76142 12 5 12V14ZM13 18V13H11V18H13ZM12.7071 12.2929L9.20711 8.79289L7.79289 10.2071L11.2929 13.7071L12.7071 12.2929ZM9.1585 10.2526L13.1585 6.75258L11.8415 5.24742L7.8415 8.74742L9.1585 10.2526ZM11.7407 6.65079C12.2544 7.25009 13.2032 8.3069 14.3529 9.22044C15.4669 10.1056 16.9452 11 18.5 11V9C17.6548 9 16.6331 8.47777 15.5971 7.65456C14.5968 6.85976 13.7456 5.91657 13.2593 5.34921L11.7407 6.65079ZM22 17C22 18.6569 20.6569 20 19 20V22C21.7614 22 24 19.7614 24 17H22ZM19 20C17.3431 20 16 18.6569 16 17H14C14 19.7614 16.2386 22 19 22V20ZM16 17C16 15.3431 17.3431 14 19 14V12C16.2386 12 14 14.2386 14 17H16ZM19 14C20.6569 14 22 15.3431 22 17H24C24 14.2386 21.7614 12 19 12V14ZM16 3V5C17.1046 5 18 4.10457 18 3H16ZM16 3H14C14 4.10457 14.8954 5 16 5V3ZM16 3V1C14.8954 1 14 1.89543 14 3H16ZM16 3H18C18 1.89543 17.1046 1 16 1V3Z" fill="#000000"/>
+            </svg>
+          </div>
+          <h5 class="features__header">Track and display detailed bike information in real-time</h5>
+          <p>
+            With our Bikey app, you can effortlessly track and display comprehensive bike details in real-time. Monitor all bikes currently in use, access their current speeds, and receive constant updates on their status. Bikey streamlines bike management, making it simpler and more effective than ever.
+          </p>
+        </div>
+        <img
+          src="{{ url_for('static', filename='img/grow-lazy.jpg') }}"
+          data-src="{{ url_for('static', filename='img/grow.jpg') }}"
+          alt="Plant"
+          class="features__img lazy-img"
+        />
+
+        <img
+          src="{{ url_for('static', filename='img/card-lazy.jpg') }}"
+          data-src="{{ url_for('static', filename='img/card.jpg') }}"
+          alt="Credit card"
+          class="features__img lazy-img"
+        />
+        <div class="features__feature">
+          <div class="features__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21.172 24l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7-7-7 3.14-7 7 3.141 7 7 7z"/></svg>
+          </div>
+          <h5 class="features__header">Easily monitor bikes within specified zones.</h5>
+          <p>
+            Our new feature ensures bikes stay within designated areas. If a bike strays beyond these boundaries, alerts are triggered. A predefined virtual perimeter is set up initially to define the acceptable limits. This system effectively prevents bikes from exiting the specified zones, maintaining control and enhancing security.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section--2">
+      <div class="section__title">
+        <h2 class="section__description">Plans & Pricing</h2>
+        <h3 class="section__header">
+          Unlock Your Bike Management Potential with Flexible Pricing Options.
+        </h3>
+      </div>
+
+      <div class="operations">
+        <div class="operations__tab-container">
+          <button
+            class="btn operations__tab operations__tab--1 operations__tab--active"
+            data-tab="1"
+          >
+            <span>01</span>Option 1
+          </button>
+          <button class="btn operations__tab operations__tab--2" data-tab="2">
+            <span>02</span>Option 2
+          </button>
+          <button class="btn operations__tab operations__tab--3" data-tab="3">
+            <span>03</span>Option 3
+          </button>
+        </div>
+        <div
+          class="operations__content operations__content--1 operations__content--active"
+        >
+          <div class="operations__icon operations__icon--1">
+            <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 511.987 511.987" xml:space="preserve">
+<path style="fill:#5D9CEC;" d="M128.001,74.662c0,5.891-4.773,10.672-10.664,10.672s-10.672-4.781-10.672-10.672
+	c0-5.89,4.781-10.663,10.672-10.663S128.001,68.772,128.001,74.662z"/>
+<path style="fill:#4FC2E9;" d="M64.003,53.28c0,5.891-4.773,10.664-10.664,10.664S42.668,59.171,42.668,53.28
+	s4.781-10.672,10.671-10.672S64.003,47.389,64.003,53.28z"/>
+<path style="fill:#FC6E51;" d="M128.001,10.664c0,5.891-4.773,10.672-10.664,10.672s-10.672-4.781-10.672-10.672
+	S111.446,0,117.337,0C123.228,0,128.001,4.773,128.001,10.664z"/>
+<path style="fill:#4FC2E9;" d="M426.65,351.882c0,5.891-4.766,10.671-10.656,10.671s-10.656-4.78-10.656-10.671
+	s4.766-10.672,10.656-10.672S426.65,345.991,426.65,351.882z"/>
+<path style="fill:#EC87C0;" d="M255.998,415.928c0,5.905-4.773,10.671-10.664,10.671s-10.672-4.766-10.672-10.671
+	c0-5.875,4.781-10.656,10.672-10.656C251.224,405.271,255.998,410.053,255.998,415.928z"/>
+<path style="fill:#FC6E51;" d="M170.664,394.646c0,5.906-4.773,10.688-10.664,10.688c-5.89,0-10.664-4.781-10.664-10.688
+	c0-5.875,4.773-10.656,10.664-10.656S170.664,388.771,170.664,394.646z"/>
+<path style="fill:#5D9CEC;" d="M42.668,309.336c0,5.875-4.773,10.656-10.664,10.656c-5.89,0-10.664-4.781-10.664-10.656
+	c0-5.906,4.773-10.688,10.664-10.688C37.894,298.648,42.668,303.43,42.668,309.336z"/>
+<path style="fill:#4FC2E9;" d="M298.651,31.945c0,5.89-4.766,10.663-10.656,10.663c-5.889,0-10.654-4.773-10.654-10.663
+	c0-5.891,4.766-10.664,10.654-10.664C293.887,21.281,298.651,26.055,298.651,31.945z"/>
+<path style="fill:#FC6E51;" d="M341.34,95.998c0,5.891-4.781,10.664-10.688,10.664c-5.875,0-10.656-4.773-10.656-10.664
+	s4.781-10.664,10.656-10.664C336.557,85.334,341.34,90.107,341.34,95.998z"/>
+<path style="fill:#5D9CEC;" d="M426.65,181.332c0,5.89-4.766,10.663-10.656,10.663s-10.656-4.773-10.656-10.663
+	c0-5.891,4.766-10.672,10.656-10.672S426.65,175.441,426.65,181.332z"/>
+<g>
+	<path style="fill:#EC87C0;" d="M469.336,117.333c0,5.891-4.781,10.664-10.688,10.664c-5.875,0-10.656-4.773-10.656-10.664
+		s4.781-10.671,10.656-10.671C464.555,106.662,469.336,111.442,469.336,117.333z"/>
+	<path style="fill:#EC87C0;" d="M85.338,223.83c0,5.891-4.781,10.664-10.671,10.664s-10.664-4.773-10.664-10.664
+		c0-5.89,4.773-10.671,10.664-10.671S85.338,217.94,85.338,223.83z"/>
+</g>
+<polygon style="fill:#AC92EB;" points="226.96,326.305 161.524,371.49 168.43,292.274 89.252,284.837 145.47,228.58 89.612,171.98 
+	168.828,165.027 162.414,85.764 227.569,131.356 273.607,66.514 294.215,143.325 371.15,123.247 337.573,195.323 409.431,229.408 
+	337.371,263.033 370.493,335.336 293.682,314.773 272.591,391.443 "/>
+<path style="fill:#A0D468;" d="M74.667,128.013H64.003v-10.555c0-5.891-4.773-10.671-10.664-10.671s-10.671,4.78-10.671,10.671
+	v10.555H32.004c-5.89,0-10.664,4.773-10.664,10.664s4.773,10.663,10.664,10.663h10.664v10.672c0,5.891,4.781,10.664,10.671,10.664
+	s10.664-4.773,10.664-10.664V149.34h10.664c5.891,0,10.671-4.772,10.671-10.663S80.557,128.013,74.667,128.013z"/>
+<path style="fill:#ED5564;" d="M373.337,405.209H362.65v-10.562c0-5.875-4.766-10.656-10.654-10.656
+	c-5.891,0-10.656,4.781-10.656,10.656v10.562h-10.688c-5.875,0-10.656,4.781-10.656,10.672c0,5.89,4.781,10.671,10.656,10.671
+	h10.688v10.655c0,5.906,4.766,10.672,10.656,10.672c5.889,0,10.654-4.766,10.654-10.672v-10.655h10.688
+	c5.875,0,10.656-4.781,10.656-10.671C383.993,409.99,379.212,405.209,373.337,405.209z"/>
+<path style="fill:#A0D468;" d="M479.991,255.993h-10.656v-10.554c0-5.891-4.781-10.672-10.688-10.672
+	c-5.875,0-10.656,4.781-10.656,10.672v10.554h-10.656c-5.906,0-10.686,4.774-10.686,10.664c0,5.898,4.779,10.68,10.686,10.68h10.656
+	v10.656c0,5.89,4.781,10.655,10.656,10.655c5.906,0,10.688-4.766,10.688-10.655v-10.656h10.656c5.891,0,10.656-4.781,10.656-10.68
+	C490.647,260.767,485.883,255.993,479.991,255.993z"/>
+<path style="fill:#ED5564;" d="M437.336,42.554H426.65V32c0-5.891-4.766-10.664-10.656-10.664S405.337,26.109,405.337,32v10.554
+	H394.65c-5.875,0-10.656,4.773-10.656,10.664c0,5.898,4.781,10.672,10.656,10.672h10.688v10.663c0,5.891,4.766,10.664,10.656,10.664
+	s10.656-4.773,10.656-10.664V63.889h10.686c5.875,0,10.656-4.773,10.656-10.672C447.991,47.327,443.211,42.554,437.336,42.554z"/>
+<path style="fill:#48CFAD;" d="M223.999,21.219h-10.664V10.664C213.335,4.773,208.554,0,202.664,0S192,4.773,192,10.664v10.555
+	h-10.664c-5.891,0-10.671,4.781-10.671,10.672c0,5.89,4.781,10.663,10.671,10.663H192v10.664c0,5.898,4.773,10.672,10.664,10.672
+	s10.671-4.773,10.671-10.672V42.554h10.664c5.89,0,10.664-4.773,10.664-10.663C234.662,26,229.889,21.219,223.999,21.219z"/>
+<path style="fill:#F6BB42;" d="M239.842,214.847c-34.116,20.476-65.709,48.194-93.912,82.396
+	c-22.429,27.219-42.772,58.562-60.467,93.186C55.37,449.302,43.472,496.77,42.98,498.77h0.008c-0.195,0.812-0.32,1.672-0.32,2.562
+	c0,5.875,4.781,10.655,10.671,10.655c5.008,0,9.195-3.469,10.344-8.108h0.008c0.117-0.453,11.789-47.046,40.764-103.731
+	c17-33.266,36.491-63.311,57.936-89.342c26.648-32.312,56.397-58.443,88.427-77.662L239.842,214.847z"/>
+<path style="fill:#FFCE54;" d="M277.341,223.994c0,17.672-14.336,31.999-32.007,31.999s-32-14.327-32-31.999
+	c0-17.671,14.328-31.999,32-31.999S277.341,206.323,277.341,223.994z"/>
+</svg>
+          </div>
+          <h5 class="operations__header">
+            Congratulations! You've been selected to enjoy our services for free!
+          </h5>
+          <p>
+            Congratulations! You've been selected to enjoy our services for free as part of our exclusive trial phase. We are currently in the process of testing and refining our website to ensure it meets the highest standards of quality and user satisfaction. Your participation and feedback during this period are invaluable to us. Take full advantage of all our features and tools without any cost, and help us shape the future of bike management. Thank you for being a part of this exciting journey with us!
+          </p>
+        </div>
+
+        <div class="operations__content operations__content--2">
+          <div class="operations__icon operations__icon--2">
+            <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 511.987 511.987" xml:space="preserve">
+<path style="fill:#5D9CEC;" d="M128.001,74.662c0,5.891-4.773,10.672-10.664,10.672s-10.672-4.781-10.672-10.672
+	c0-5.89,4.781-10.663,10.672-10.663S128.001,68.772,128.001,74.662z"/>
+<path style="fill:#4FC2E9;" d="M64.003,53.28c0,5.891-4.773,10.664-10.664,10.664S42.668,59.171,42.668,53.28
+	s4.781-10.672,10.671-10.672S64.003,47.389,64.003,53.28z"/>
+<path style="fill:#FC6E51;" d="M128.001,10.664c0,5.891-4.773,10.672-10.664,10.672s-10.672-4.781-10.672-10.672
+	S111.446,0,117.337,0C123.228,0,128.001,4.773,128.001,10.664z"/>
+<path style="fill:#4FC2E9;" d="M426.65,351.882c0,5.891-4.766,10.671-10.656,10.671s-10.656-4.78-10.656-10.671
+	s4.766-10.672,10.656-10.672S426.65,345.991,426.65,351.882z"/>
+<path style="fill:#EC87C0;" d="M255.998,415.928c0,5.905-4.773,10.671-10.664,10.671s-10.672-4.766-10.672-10.671
+	c0-5.875,4.781-10.656,10.672-10.656C251.224,405.271,255.998,410.053,255.998,415.928z"/>
+<path style="fill:#FC6E51;" d="M170.664,394.646c0,5.906-4.773,10.688-10.664,10.688c-5.89,0-10.664-4.781-10.664-10.688
+	c0-5.875,4.773-10.656,10.664-10.656S170.664,388.771,170.664,394.646z"/>
+<path style="fill:#5D9CEC;" d="M42.668,309.336c0,5.875-4.773,10.656-10.664,10.656c-5.89,0-10.664-4.781-10.664-10.656
+	c0-5.906,4.773-10.688,10.664-10.688C37.894,298.648,42.668,303.43,42.668,309.336z"/>
+<path style="fill:#4FC2E9;" d="M298.651,31.945c0,5.89-4.766,10.663-10.656,10.663c-5.889,0-10.654-4.773-10.654-10.663
+	c0-5.891,4.766-10.664,10.654-10.664C293.887,21.281,298.651,26.055,298.651,31.945z"/>
+<path style="fill:#FC6E51;" d="M341.34,95.998c0,5.891-4.781,10.664-10.688,10.664c-5.875,0-10.656-4.773-10.656-10.664
+	s4.781-10.664,10.656-10.664C336.557,85.334,341.34,90.107,341.34,95.998z"/>
+<path style="fill:#5D9CEC;" d="M426.65,181.332c0,5.89-4.766,10.663-10.656,10.663s-10.656-4.773-10.656-10.663
+	c0-5.891,4.766-10.672,10.656-10.672S426.65,175.441,426.65,181.332z"/>
+<g>
+	<path style="fill:#EC87C0;" d="M469.336,117.333c0,5.891-4.781,10.664-10.688,10.664c-5.875,0-10.656-4.773-10.656-10.664
+		s4.781-10.671,10.656-10.671C464.555,106.662,469.336,111.442,469.336,117.333z"/>
+	<path style="fill:#EC87C0;" d="M85.338,223.83c0,5.891-4.781,10.664-10.671,10.664s-10.664-4.773-10.664-10.664
+		c0-5.89,4.773-10.671,10.664-10.671S85.338,217.94,85.338,223.83z"/>
+</g>
+<polygon style="fill:#AC92EB;" points="226.96,326.305 161.524,371.49 168.43,292.274 89.252,284.837 145.47,228.58 89.612,171.98 
+	168.828,165.027 162.414,85.764 227.569,131.356 273.607,66.514 294.215,143.325 371.15,123.247 337.573,195.323 409.431,229.408 
+	337.371,263.033 370.493,335.336 293.682,314.773 272.591,391.443 "/>
+<path style="fill:#A0D468;" d="M74.667,128.013H64.003v-10.555c0-5.891-4.773-10.671-10.664-10.671s-10.671,4.78-10.671,10.671
+	v10.555H32.004c-5.89,0-10.664,4.773-10.664,10.664s4.773,10.663,10.664,10.663h10.664v10.672c0,5.891,4.781,10.664,10.671,10.664
+	s10.664-4.773,10.664-10.664V149.34h10.664c5.891,0,10.671-4.772,10.671-10.663S80.557,128.013,74.667,128.013z"/>
+<path style="fill:#ED5564;" d="M373.337,405.209H362.65v-10.562c0-5.875-4.766-10.656-10.654-10.656
+	c-5.891,0-10.656,4.781-10.656,10.656v10.562h-10.688c-5.875,0-10.656,4.781-10.656,10.672c0,5.89,4.781,10.671,10.656,10.671
+	h10.688v10.655c0,5.906,4.766,10.672,10.656,10.672c5.889,0,10.654-4.766,10.654-10.672v-10.655h10.688
+	c5.875,0,10.656-4.781,10.656-10.671C383.993,409.99,379.212,405.209,373.337,405.209z"/>
+<path style="fill:#A0D468;" d="M479.991,255.993h-10.656v-10.554c0-5.891-4.781-10.672-10.688-10.672
+	c-5.875,0-10.656,4.781-10.656,10.672v10.554h-10.656c-5.906,0-10.686,4.774-10.686,10.664c0,5.898,4.779,10.68,10.686,10.68h10.656
+	v10.656c0,5.89,4.781,10.655,10.656,10.655c5.906,0,10.688-4.766,10.688-10.655v-10.656h10.656c5.891,0,10.656-4.781,10.656-10.68
+	C490.647,260.767,485.883,255.993,479.991,255.993z"/>
+<path style="fill:#ED5564;" d="M437.336,42.554H426.65V32c0-5.891-4.766-10.664-10.656-10.664S405.337,26.109,405.337,32v10.554
+	H394.65c-5.875,0-10.656,4.773-10.656,10.664c0,5.898,4.781,10.672,10.656,10.672h10.688v10.663c0,5.891,4.766,10.664,10.656,10.664
+	s10.656-4.773,10.656-10.664V63.889h10.686c5.875,0,10.656-4.773,10.656-10.672C447.991,47.327,443.211,42.554,437.336,42.554z"/>
+<path style="fill:#48CFAD;" d="M223.999,21.219h-10.664V10.664C213.335,4.773,208.554,0,202.664,0S192,4.773,192,10.664v10.555
+	h-10.664c-5.891,0-10.671,4.781-10.671,10.672c0,5.89,4.781,10.663,10.671,10.663H192v10.664c0,5.898,4.773,10.672,10.664,10.672
+	s10.671-4.773,10.671-10.672V42.554h10.664c5.89,0,10.664-4.773,10.664-10.663C234.662,26,229.889,21.219,223.999,21.219z"/>
+<path style="fill:#F6BB42;" d="M239.842,214.847c-34.116,20.476-65.709,48.194-93.912,82.396
+	c-22.429,27.219-42.772,58.562-60.467,93.186C55.37,449.302,43.472,496.77,42.98,498.77h0.008c-0.195,0.812-0.32,1.672-0.32,2.562
+	c0,5.875,4.781,10.655,10.671,10.655c5.008,0,9.195-3.469,10.344-8.108h0.008c0.117-0.453,11.789-47.046,40.764-103.731
+	c17-33.266,36.491-63.311,57.936-89.342c26.648-32.312,56.397-58.443,88.427-77.662L239.842,214.847z"/>
+<path style="fill:#FFCE54;" d="M277.341,223.994c0,17.672-14.336,31.999-32.007,31.999s-32-14.327-32-31.999
+	c0-17.671,14.328-31.999,32-31.999S277.341,206.323,277.341,223.994z"/>
+</svg>
+          </div>
+          <h5 class="operations__header">
+            Congratulations! You've been selected to enjoy our services for free!
+          </h5>
+          <p>
+            Congratulations! You've been selected to enjoy our services for free as part of our exclusive trial phase. We are currently in the process of testing and refining our website to ensure it meets the highest standards of quality and user satisfaction. Your participation and feedback during this period are invaluable to us. Take full advantage of all our features and tools without any cost, and help us shape the future of bike management. Thank you for being a part of this exciting journey with us!
+          </p>
+        </div>
+        <div class="operations__content operations__content--3">
+          <div class="operations__icon operations__icon--3">
+            <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 511.987 511.987" xml:space="preserve">
+<path style="fill:#5D9CEC;" d="M128.001,74.662c0,5.891-4.773,10.672-10.664,10.672s-10.672-4.781-10.672-10.672
+	c0-5.89,4.781-10.663,10.672-10.663S128.001,68.772,128.001,74.662z"/>
+<path style="fill:#4FC2E9;" d="M64.003,53.28c0,5.891-4.773,10.664-10.664,10.664S42.668,59.171,42.668,53.28
+	s4.781-10.672,10.671-10.672S64.003,47.389,64.003,53.28z"/>
+<path style="fill:#FC6E51;" d="M128.001,10.664c0,5.891-4.773,10.672-10.664,10.672s-10.672-4.781-10.672-10.672
+	S111.446,0,117.337,0C123.228,0,128.001,4.773,128.001,10.664z"/>
+<path style="fill:#4FC2E9;" d="M426.65,351.882c0,5.891-4.766,10.671-10.656,10.671s-10.656-4.78-10.656-10.671
+	s4.766-10.672,10.656-10.672S426.65,345.991,426.65,351.882z"/>
+<path style="fill:#EC87C0;" d="M255.998,415.928c0,5.905-4.773,10.671-10.664,10.671s-10.672-4.766-10.672-10.671
+	c0-5.875,4.781-10.656,10.672-10.656C251.224,405.271,255.998,410.053,255.998,415.928z"/>
+<path style="fill:#FC6E51;" d="M170.664,394.646c0,5.906-4.773,10.688-10.664,10.688c-5.89,0-10.664-4.781-10.664-10.688
+	c0-5.875,4.773-10.656,10.664-10.656S170.664,388.771,170.664,394.646z"/>
+<path style="fill:#5D9CEC;" d="M42.668,309.336c0,5.875-4.773,10.656-10.664,10.656c-5.89,0-10.664-4.781-10.664-10.656
+	c0-5.906,4.773-10.688,10.664-10.688C37.894,298.648,42.668,303.43,42.668,309.336z"/>
+<path style="fill:#4FC2E9;" d="M298.651,31.945c0,5.89-4.766,10.663-10.656,10.663c-5.889,0-10.654-4.773-10.654-10.663
+	c0-5.891,4.766-10.664,10.654-10.664C293.887,21.281,298.651,26.055,298.651,31.945z"/>
+<path style="fill:#FC6E51;" d="M341.34,95.998c0,5.891-4.781,10.664-10.688,10.664c-5.875,0-10.656-4.773-10.656-10.664
+	s4.781-10.664,10.656-10.664C336.557,85.334,341.34,90.107,341.34,95.998z"/>
+<path style="fill:#5D9CEC;" d="M426.65,181.332c0,5.89-4.766,10.663-10.656,10.663s-10.656-4.773-10.656-10.663
+	c0-5.891,4.766-10.672,10.656-10.672S426.65,175.441,426.65,181.332z"/>
+<g>
+	<path style="fill:#EC87C0;" d="M469.336,117.333c0,5.891-4.781,10.664-10.688,10.664c-5.875,0-10.656-4.773-10.656-10.664
+		s4.781-10.671,10.656-10.671C464.555,106.662,469.336,111.442,469.336,117.333z"/>
+	<path style="fill:#EC87C0;" d="M85.338,223.83c0,5.891-4.781,10.664-10.671,10.664s-10.664-4.773-10.664-10.664
+		c0-5.89,4.773-10.671,10.664-10.671S85.338,217.94,85.338,223.83z"/>
+</g>
+<polygon style="fill:#AC92EB;" points="226.96,326.305 161.524,371.49 168.43,292.274 89.252,284.837 145.47,228.58 89.612,171.98 
+	168.828,165.027 162.414,85.764 227.569,131.356 273.607,66.514 294.215,143.325 371.15,123.247 337.573,195.323 409.431,229.408 
+	337.371,263.033 370.493,335.336 293.682,314.773 272.591,391.443 "/>
+<path style="fill:#A0D468;" d="M74.667,128.013H64.003v-10.555c0-5.891-4.773-10.671-10.664-10.671s-10.671,4.78-10.671,10.671
+	v10.555H32.004c-5.89,0-10.664,4.773-10.664,10.664s4.773,10.663,10.664,10.663h10.664v10.672c0,5.891,4.781,10.664,10.671,10.664
+	s10.664-4.773,10.664-10.664V149.34h10.664c5.891,0,10.671-4.772,10.671-10.663S80.557,128.013,74.667,128.013z"/>
+<path style="fill:#ED5564;" d="M373.337,405.209H362.65v-10.562c0-5.875-4.766-10.656-10.654-10.656
+	c-5.891,0-10.656,4.781-10.656,10.656v10.562h-10.688c-5.875,0-10.656,4.781-10.656,10.672c0,5.89,4.781,10.671,10.656,10.671
+	h10.688v10.655c0,5.906,4.766,10.672,10.656,10.672c5.889,0,10.654-4.766,10.654-10.672v-10.655h10.688
+	c5.875,0,10.656-4.781,10.656-10.671C383.993,409.99,379.212,405.209,373.337,405.209z"/>
+<path style="fill:#A0D468;" d="M479.991,255.993h-10.656v-10.554c0-5.891-4.781-10.672-10.688-10.672
+	c-5.875,0-10.656,4.781-10.656,10.672v10.554h-10.656c-5.906,0-10.686,4.774-10.686,10.664c0,5.898,4.779,10.68,10.686,10.68h10.656
+	v10.656c0,5.89,4.781,10.655,10.656,10.655c5.906,0,10.688-4.766,10.688-10.655v-10.656h10.656c5.891,0,10.656-4.781,10.656-10.68
+	C490.647,260.767,485.883,255.993,479.991,255.993z"/>
+<path style="fill:#ED5564;" d="M437.336,42.554H426.65V32c0-5.891-4.766-10.664-10.656-10.664S405.337,26.109,405.337,32v10.554
+	H394.65c-5.875,0-10.656,4.773-10.656,10.664c0,5.898,4.781,10.672,10.656,10.672h10.688v10.663c0,5.891,4.766,10.664,10.656,10.664
+	s10.656-4.773,10.656-10.664V63.889h10.686c5.875,0,10.656-4.773,10.656-10.672C447.991,47.327,443.211,42.554,437.336,42.554z"/>
+<path style="fill:#48CFAD;" d="M223.999,21.219h-10.664V10.664C213.335,4.773,208.554,0,202.664,0S192,4.773,192,10.664v10.555
+	h-10.664c-5.891,0-10.671,4.781-10.671,10.672c0,5.89,4.781,10.663,10.671,10.663H192v10.664c0,5.898,4.773,10.672,10.664,10.672
+	s10.671-4.773,10.671-10.672V42.554h10.664c5.89,0,10.664-4.773,10.664-10.663C234.662,26,229.889,21.219,223.999,21.219z"/>
+<path style="fill:#F6BB42;" d="M239.842,214.847c-34.116,20.476-65.709,48.194-93.912,82.396
+	c-22.429,27.219-42.772,58.562-60.467,93.186C55.37,449.302,43.472,496.77,42.98,498.77h0.008c-0.195,0.812-0.32,1.672-0.32,2.562
+	c0,5.875,4.781,10.655,10.671,10.655c5.008,0,9.195-3.469,10.344-8.108h0.008c0.117-0.453,11.789-47.046,40.764-103.731
+	c17-33.266,36.491-63.311,57.936-89.342c26.648-32.312,56.397-58.443,88.427-77.662L239.842,214.847z"/>
+<path style="fill:#FFCE54;" d="M277.341,223.994c0,17.672-14.336,31.999-32.007,31.999s-32-14.327-32-31.999
+	c0-17.671,14.328-31.999,32-31.999S277.341,206.323,277.341,223.994z"/>
+</svg>
+          </div>
+          <h5 class="operations__header">
+            Congratulations! You've been selected to enjoy our services for free!"
+          </h5>
+          <p>
+            Congratulations! You've been selected to enjoy our services for free as part of our exclusive trial phase. We are currently in the process of testing and refining our website to ensure it meets the highest standards of quality and user satisfaction. Your participation and feedback during this period are invaluable to us. Take full advantage of all our features and tools without any cost, and help us shape the future of bike management. Thank you for being a part of this exciting journey with us!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section--3">
+      <div class="section__title section__title--testimonials">
+        <h2 class="section__description">Not sure yet?</h2>
+        <h3 class="section__header">
+          Bikey users are already making their lifes simpler.
+        </h3>
+      </div>
+
+      <div class="slider">
+        <div class="slide">
+          <div class="testimonial">
+            <h5 class="testimonial__header">Smoothest browsing experience ever!</h5>
+            <blockquote class="testimonial__text">
+            The website's sleek design and easy-to-navigate layout make it a breeze to find exactly what I need. Bikey offers a seamless browsing experience, ensuring swift access to essential details. The clear organization of information enhances usability, empowering users to make informed decisions effortlessly.
+            </blockquote>
+            <address class="testimonial__author">
+              <img src="{{ url_for('static', filename='img/screenshot2024_05_29.png') }}" alt="" class="testimonial__photo" />
+              <h6 class="testimonial__name">Duong Quy Trang</h6>
+              <p class="testimonial__location">Hanoi, Vietnam</p>
+            </address>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="testimonial">
+            <h5 class="testimonial__header">
+              Clear information, user-friendly interface, reliability
+            </h5>
+            <blockquote class="testimonial__text">
+              The website's informative layout not only provides clear details about the services offered but also educates users about their advantages and functionalities. The structured presentation and comprehensive descriptions aid understanding, empowering users to choose the best options for their needs. Bikey's user-friendly interface fosters trust and reliability.
+            </blockquote>
+            <address class="testimonial__author">
+              <img src="{{ url_for('static', filename='img/360156151_1860538761009161_3948443351578745148_n.jpg') }}" alt="" class="testimonial__photo" />
+              <h6 class="testimonial__name">Phan Thanh Hung</h6>
+              <p class="testimonial__location">Ho Chi Minh, Vietnam</p>
+            </address>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="testimonial">
+            <h5 class="testimonial__header">
+              Geofencing: Peace of mind, optimization
+            </h5>
+            <blockquote class="testimonial__text">
+              The geofencing feature of Bikey is fantastic! Being able to set boundaries and receive immediate alerts when a bike leaves the designated area has given me peace of mind when renting out bikes. This capability not only helps me protect assets but also optimizes my business operations. I couldn't be happier with this feature from Bikey!
+            </blockquote>
+            <address class="testimonial__author">
+              <img src="{{ url_for('static', filename='/img/341009597_975028050531642_128996958547898957_n.jpg') }}" alt="" class="testimonial__photo" />
+              <h6 class="testimonial__name">Nguyen Vo Minh Khoi</h6>
+              <p class="testimonial__location">Binh Duong, Vietnam</p>
+            </address>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="testimonial">
+            <h5 class="testimonial__header">
+              Geofencing: Peace of mind, optimization
+            </h5>
+            <blockquote class="testimonial__text">
+              This app is amazing and definitely worth every penny. The features are incredibly useful, and the user-friendly interface makes it a pleasure to use. I believe it's so valuable that charging a fee in the future would be fully justified.
+            </blockquote>
+            <address class="testimonial__author">
+              <img src="{{ url_for('static', filename='img/341009597_975028050531642_128996958547898957_n.jpg') }}" alt="" class="testimonial__photo" />
+              <h6 class="testimonial__name">Nguyen Vo Minh Khoi</h6>
+              <p class="testimonial__location">Binh Duong, Vietnam</p>
+            </address>
+          </div>
+        </div>
+
+        <button class="slider__btn slider__btn--left">&larr;</button>
+        <button class="slider__btn slider__btn--right">&rarr;</button>
+        <div class="dots"></div>
+      </div>
+    </section>
+
+    <section class="section section--sign-up" id="footer">
+      <div class="section__title">
+        <h3 class="section__header">
+          The best day to join Bankist was one year ago. The second best is
+          today!
+        </h3>
+      </div>
+      <button class="btn btn--show-modal" onclick="location.href='{{ url_for('login') }}'">Login or Register</button>
+    </section>
+
+    <footer class="fo<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/icon.png') }}" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/Bikey_landingpage.css') }}" />
+    <title>Bikey-Key to your successful operation</title>
+
+    <script defer src="{{ url_for('static', filename='js/Bikey_landingpage.js') }}"></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <img
+          src="{{ url_for('static', filename='img/logobikey.png') }}"
+          alt="Bikey logo"
+          class="nav__logo"
+          id="logo"
+          data-version-number="3.0"
+        />
+        <ul class="nav__links">
+          <li class="nav__item">
+            <a class="nav__link" href="#section--1">Features</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--2">Plans & Pricing</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--3">Testimonials</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#footer">Contact</a>
+          </li>
+          <li class="nav__item">
+            <button class="btn btn--show-modal" onclick="location.href='{{ url_for('login') }}'">Login or Register</button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header__title">
+        <!-- <h1 onclick="alert('HTML alert')"> -->
+        <h1>
+          <span class="highlight">Bikey:</span>
+          <br>
+          <!-- Green highlight effect -->
+          Where every ride begins.
+        </h1>
+        <h4>Elevating Your Cycling Experience with Expert Management Solutions.</h4>
+        <button class="btn--text btn--scroll-to">Learn more &DownArrow;</button>
+        <img
+          src="{{ url_for('static', filename='img/ridingbikeboy.jpg') }}"
+          class="header__img"
+          alt="Bikey"
+        />
+      </div>
+    </header>
+
+    <section class="section" id="section--1">
+      <div class="section__title">
+        <h2 class="section__description">Features</h2>
+        <h3 class="section__header">
+          Everything you need in a modern bike management app and more
+        </h3>
+      </div>
+
+      <div class="features">
+        <img
+          src="{{ url_for('static', filename='img/digital-lazy.jpg') }}"
+          data-src="{{ url_for('static', filename='img/digital.jpg') }}"
+          alt="Computer"
+          class="features__img lazy-img"
+        />
+        <div class="features__feature">
+          <div class="features__icon">
+            <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+              <g id="SVGRepo_iconCarrier"> <path d="M5.875 12.5729C5.30847 11.2498 5 9.84107 5 8.51463C5 4.9167 8.13401 2 12 2C15.866 2 19 4.9167 19 8.51463C19 12.0844 16.7658 16.2499 13.2801 17.7396C12.4675 18.0868 11.5325 18.0868 10.7199 17.7396C9.60664 17.2638 8.62102 16.5151 7.79508 15.6" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/> <path d="M14 9C14 10.1046 13.1046 11 12 11C10.8954 11 10 10.1046 10 9C10 7.89543 10.8954 7 12 7C13.1046 7 14 7.89543 14 9Z" stroke="#1C274C" stroke-width="1.5"/> <path d="M20.9605 15.5C21.6259 16.1025 22 16.7816 22 17.5C22 18.4251 21.3797 19.285 20.3161 20M3.03947 15.5C2.37412 16.1025 2 16.7816 2 17.5C2 19.9853 6.47715 22 12 22C13.6529 22 15.2122 21.8195 16.5858 21.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/> </g>
+              </svg>
+          </div>
+          <h5 class="features__header">Effortless Bike Oversight</h5>
+          <p>
+            Our Bikey app offers precise bike location tracking on an interactive map. Easily monitor and manage each bike in real-time, view current positions. Experience convenience and peace of mind with Bikey's bike tracking feature!
+          </p>
+        </div>
+
+        <div class="features__feature">
+          <div class="features__icon">
+            <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 18C11 18.5523 11.4477 19 12 19C12.5523 19 13 18.5523 13 18H11ZM12 13H13C13 12.7348 12.8946 12.4804 12.7071 12.2929L12 13ZM8.5 9.5L7.8415 8.74742C7.6332 8.92968 7.50976 9.19011 7.50055 9.46672C7.49134 9.74334 7.59719 10.0114 7.79289 10.2071L8.5 9.5ZM12.5 6L13.2593 5.34921C13.0855 5.1465 12.8379 5.02169 12.5716 5.00257C12.3053 4.98345 12.0424 5.07161 11.8415 5.24742L12.5 6ZM18.5 11C19.0523 11 19.5 10.5523 19.5 10C19.5 9.44772 19.0523 9 18.5 9V11ZM8 17C8 18.6569 6.65685 20 5 20V22C7.76142 22 10 19.7614 10 17H8ZM5 20C3.34315 20 2 18.6569 2 17H0C0 19.7614 2.23858 22 5 22V20ZM2 17C2 15.3431 3.34315 14 5 14V12C2.23858 12 0 14.2386 0 17H2ZM5 14C6.65685 14 8 15.3431 8 17H10C10 14.2386 7.76142 12 5 12V14ZM13 18V13H11V18H13ZM12.7071 12.2929L9.20711 8.79289L7.79289 10.2071L11.2929 13.7071L12.7071 12.2929ZM9.1585 10.2526L13.1585 6.75258L11.8415 5.24742L7.8415 8.74742L9.1585 10.2526ZM11.7407 6.65079C12.2544 7.25009 13.2032 8.3069 14.3529 9.22044C15.4669 10.1056 16.9452 11 18.5 11V9C17.6548 9 16.6331 8.47777 15.5971 7.65456C14.5968 6.85976 13.7456 5.91657 13.2593 5.34921L11.7407 6.65079ZM22 17C22 18.6569 20.6569 20 19 20V22C21.7614 22 24 19.7614 24 17H22ZM19 20C17.3431 20 16 18.6569 16 17H14C14 19.7614 16.2386 22 19 22V20ZM16 17C16 15.3431 17.3431 14 19 14V12C16.2386 12 14 14.2386 14 17H16ZM19 14C20.6569 14 22 15.3431 22 17H24C24 14.2386 21.7614 12 19 12V14ZM16 3V5C17.1046 5 18 4.10457 18 3H16ZM16 3H14C14 4.10457 14.8954 5 16 5V3ZM16 3V1C14.8954 1 14 1.89543 14 3H16ZM16 3H18C18 1.89543 17.1046 1 16 1V3Z" fill="#000000"/>
+            </svg>
+          </div>
+          <h5 class="features__header">Track and display detailed bike information in real-time</h5>
+          <p>
+            With our Bikey app, you can effortlessly track and display comprehensive bike details in real-time. Monitor all bikes currently in use, access their current speeds, and receive constant updates on their status. Bikey streamlines bike management, making it simpler and more effective than ever.
+          </p>
+        </div>
+        <img
+          src="{{ url_for('static', filename='img/grow-lazy.jpg') }}"
+          data-src="{{ url_for('static', filename='img/grow.jpg') }}"
+          alt="Plant"
+          class="features__img lazy-img"
+        />
+
+        <img
+          src="{{ url_for('static', filename='img/card-lazy.jpg') }}"
+          data-src="{{ url_for('static', filename='img/card.jpg') }}"
+          alt="Credit card"
+          class="features__img lazy-img"
+        />
+        <div class="features__feature">
+          <div class="features__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21.172 24l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7-7-7 3.14-7 7 3.141 7 7 7z"/></svg>
+          </div>
+          <h5 class="features__header">Easily monitor bikes within specified zones.</h5>
+          <p>
+            Our new feature ensures bikes stay within designated areas. If a bike strays beyond these boundaries, alerts are triggered. A predefined virtual perimeter is set up initially to define the acceptable limits. This system effectively prevents bikes from exiting the specified zones, maintaining control and enhancing security.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section--2">
+      <div class="section__title">
+        <h2 class="section__description">Plans & Pricing</h2>
+        <h3 class="section__header">
+          Unlock Your Bike Management Potential with Flexible Pricing Options.
+        </h3>
+      </div>
+
+      <div class="operations">
+        <div class="operations__tab-container">
+          <button
+            class="btn operations__tab operations__tab--1 operations__tab--active"
+            data-tab="1"
+          >
+            <span>01</span>Option 1
+          </button>
+          <button class="btn operations__tab operations__tab--2" data-tab="2">
+            <span>02</span>Option 2
+          </button>
+          <button class="btn operations__tab operations__tab--3" data-tab="3">
+            <span>03</span>Option 3
+          </button>
+        </div>
+        <div
+          class="operations__content operations__content--1 operations__content--active"
+        >
+          <div class="operations__icon operations__icon--1">
+            <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 viewBox="0 0 511.987 511.987" xml:space="preserve">
+<path style="fill:#5D9CEC;" d="M128.001,74.662c0,5.891-4.773,10.672-10.664,10.672s-10.672-4.781-10.672-10.672
+	c0-5.89,4.781-10.663,10.672-10.663S128.001,68.772,128.001,74.662z"/>
+<path style="fill:#4FC2E9;" d="M64.003,53.28c0,5.891-4.773,10.664-10.664,10.664S42.668,59.171,42.668,53.28
+	s4.781-10.672,10.671-10.672S64.003,47.389,64.003,53.28z"/>
+<path style="fill:#FC6E51;" d="M128.001,10.664c0,5.891-4.773,10.672-10.664,10.672s-10.672-4.781-10.672-10.672
+	S111.446,0,117.337,0C123.228,0,128.001,4.773,128.001,10.664z"/>
+<path style="fill:#4FC2E9;" d="M426.65,351.882c0,5.891-4.766,10.671-10.656,10.671s-10.656-4.78-10.656-10.671
+	s4.766-10.672,10.656-10.672S426.65,345.991,426.65,351.882z"/>
+<path style="fill:#EC87C0;" d="M255.998,415.928c0,5.905-4.773,10.671-10.664,10.671s-10.672-4.766-10.672-10.671
+	c0-5.875,4.781-10.656,10.672-10.656C251.224,405.271,255.998,410.053,255.998,415.928z"/>
+<path style="fill:#FC6E51;" d="M170.664,394.646c0,5.906-4.773,10.688-10.664,10.688c-5.89,0-10.664-4.781-10.664-10.688
+	c0-5.875,4.773-10.656,10.664-10.656S170.664,388.771,170.664,394.646z"/>
+<path style="fill:#5D9CEC;" d="M42.668,309.336c0,5.875-4.773,10.656-10.664,10.656c-5.89,0-10.664-4.781-10.664-10.656
+	c0-5.906,4.773-10.688,10.664-10.688C37.894,298.648,42.668,303.43,42.668,309.336z"/>
+<path style="fill:#4FC2E9;" d="M298.651,31.945c0,5.89-4.766,10.663-10.656,10.663c-5.889,0-10.654-4.773-10.654-10.663
+	c0-5.891,4.766-10.664,10.654-10.664C293.887,21.281,298.651,26.055,298.651,31.945z"/>
+<path style="fill:#FC6E51;" d="M341.34,95.998c0,5.891-4.781,10.664-10.688,10.664c-5.875,0-10.656-4.773-10.656-10.664
+	s4.781-10.664,10.656-10.664C336.557,85.334,341.34,90.107,341.34,95.998z"/>
+<path style="fill:#5D9CEC;" d="M426.65,181.332c0,5.89-4.766,10.663-10.656,10.663s-10.656-4.773-10.656-10.663
+	c0-5.891,4.766-10.672,10.656-10.672S426.65,175.441,426.65,181.332z"/>
+<g>
+	<path style="fill:#EC87C0;" d="M469.336,117.333c0,5.891-4.781,10.664-10.688,10.664c-5.875,0-10.656-4.773-10.656-10.664
+		s4.781-10.671,10.656-10.671C464.555,106.662,469.336,111.442,469.336,117.333z"/>
+	<path style="fill:#EC87C0;" d="M85.338,223.83c0,5.891-4.781,10.664-10.671,10.664s-10.664-4.773-10.664-10.664
+		c0-5.89,4.773-10.671,10.664-10.671S85.338,217.94,85.338,223.83z"/>
+</g>
+<polygon style="fill:#AC92EB;" points="226.96,326.305 161.524,371.49 168.43,292.274 89.252,284.837 145.47,228.58 89.612,171.98
+	168.828,165.027 162.414,85.764 227.569,131.356 273.607,66.514 294.215,143.325 371.15,123.247 337.573,195.323 409.431,229.408
+	337.371,263.033 370.493,335.336 293.682,314.773 272.591,391.443 "/>
+<path style="fill:#A0D468;" d="M74.667,128.013H64.003v-10.555c0-5.891-4.773-10.671-10.664-10.671s-10.671,4.78-10.671,10.671
+	v10.555H32.004c-5.89,0-10.664,4.773-10.664,10.664s4.773,10.663,10.664,10.663h10.664v10.672c0,5.891,4.781,10.664,10.671,10.664
+	s10.664-4.773,10.664-10.664V149.34h10.664c5.891,0,10.671-4.772,10.671-10.663S80.557,128.013,74.667,128.013z"/>
+<path style="fill:#ED5564;" d="M373.337,405.209H362.65v-10.562c0-5.875-4.766-10.656-10.654-10.656
+	c-5.891,0-10.656,4.781-10.656,10.656v10.562h-10.688c-5.875,0-10.656,4.781-10.656,10.672c0,5.89,4.781,10.671,10.656,10.671
+	h10.688v10.655c0,5.906,4.766,10.672,10.656,10.672c5.889,0,10.654-4.766,10.654-10.672v-10.655h10.688
+	c5.875,0,10.656-4.781,10.656-10.671C383.993,409.99,379.212,405.209,373.337,405.209z"/>
+<path style="fill:#A0D468;" d="M479.991,255.993h-10.656v-10.554c0-5.891-4.781-10.672-10.688-10.672
+	c-5.875,0-10.656,4.781-10.656,10.672v10.554h-10.656c-5.906,0-10.686,4.774-10.686,10.664c0,5.898,4.779,10.68,10.686,10.68h10.656
+	v10.656c0,5.89,4.781,10.655,10.656,10.655c5.906,0,10.688-4.766,10.688-10.655v-10.656h10.656c5.891,0,10.656-4.781,10.656-10.68
+	C490.647,260.767,485.883,255.993,479.991,255.993z"/>
+<path style="fill:#ED5564;" d="M437.336,42.554H426.65V32c0-5.891-4.766-10.664-10.656-10.664S405.337,26.109,405.337,32v10.554
+	H394.65c-5.875,0-10.656,4.773-10.656,10.664c0,5.898,4.781,10.672,10.656,10.672h10.688v10.663c0,5.891,4.766,10.664,10.656,10.664
+	s10.656-4.773,10.656-10.664V63.889h10.686c5.875,0,10.656-4.773,10.656-10.672C447.991,47.327,443.211,42.554,437.336,42.554z"/>
+<path style="fill:#48CFAD;" d="M223.999,21.219h-10.664V10.664C213.335,4.773,208.554,0,202.664,0S192,4.773,192,10.664v10.555
+	h-10.664c-5.891,0-10.671,4.781-10.671,10.672c0,5.89,4.781,10.663,10.671,10.663H192v10.664c0,5.898,4.773,10.672,10.664,10.672
+	s10.671-4.773,10.671-10.672V42.554h10.664c5.89,0,10.664-4.773,10.664-10.663C234.662,26,229.889,21.219,223.999,21.219z"/>
+<path style="fill:#F6BB42;" d="M239.842,214.847c-34.116,20.476-65.709,48.194-93.912,82.396
+	c-22.429,27.219-42.772,58.562-60.467,93.186C55.37,449.302,43.472,496.77,42.98,498.77h0.008c-0.195,0.812-0.32,1.672-0.32,2.562
+	c0,5.875,4.781,10.655,10.671,10.655c5.008,0,9.195-3.469,10.344-8.108h0.008c0.117-0.453,11.789-47.046,40.764-103.731
+	c17-33.266,36.491-63.311,57.936-89.342c26.648-32.312,56.397-58.443,88.427-77.662L239.842,214.847z"/>
+<path style="fill:#FFCE54;" d="M277.341,223.994c0,17.672-14.336,31.999-32.007,31.999s-32-14.327-32-31.999
+	c0-17.671,14.328-31.999,32-31.999S277.341,206.323,277.341,223.994z"/>
+</svg>
+          </div>
+          <h5 class="operations__header">
+            Congratulations! You've been selected to enjoy our services for free!
+          </h5>
+          <p>
+            Congratulations! You've been selected to enjoy our services for free as part of our exclusive trial phase. We are currently in the process of testing and refining our website to ensure it meets the highest standards of quality and user satisfaction. Your participation and feedback during this period are invaluable to us. Take full advantage of all our features and tools without any cost, and help us shape the future of bike management. Thank you for being a part of this exciting journey with us!
+          </p>
+        </div>
+
+        <div class="operations__content operations__content--2">
+          <div class="operations__icon operations__icon--2">
+            <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 viewBox="0 0 511.987 511.987" xml:space="preserve">
+<path style="fill:#5D9CEC;" d="M128.001,74.662c0,5.891-4.773,10.672-10.664,10.672s-10.672-4.781-10.672-10.672
+	c0-5.89,4.781-10.663,10.672-10.663S128.001,68.772,128.001,74.662z"/>
+<path style="fill:#4FC2E9;" d="M64.003,53.28c0,5.891-4.773,10.664-10.664,10.664S42.668,59.171,42.668,53.28
+	s4.781-10.672,10.671-10.672S64.003,47.389,64.003,53.28z"/>
+<path style="fill:#FC6E51;" d="M128.001,10.664c0,5.891-4.773,10.672-10.664,10.672s-10.672-4.781-10.672-10.672
+	S111.446,0,117.337,0C123.228,0,128.001,4.773,128.001,10.664z"/>
+<path style="fill:#4FC2E9;" d="M426.65,351.882c0,5.891-4.766,10.671-10.656,10.671s-10.656-4.78-10.656-10.671
+	s4.766-10.672,10.656-10.672S426.65,345.991,426.65,351.882z"/>
+<path style="fill:#EC87C0;" d="M255.998,415.928c0,5.905-4.773,10.671-10.664,10.671s-10.672-4.766-10.672-10.671
+	c0-5.875,4.781-10.656,10.672-10.656C251.224,405.271,255.998,410.053,255.998,415.928z"/>
+<path style="fill:#FC6E51;" d="M170.664,394.646c0,5.906-4.773,10.688-10.664,10.688c-5.89,0-10.664-4.781-10.664-10.688
+	c0-5.875,4.773-10.656,10.664-10.656S170.664,388.771,170.664,394.646z"/>
+<path style="fill:#5D9CEC;" d="M42.668,309.336c0,5.875-4.773,10.656-10.664,10.656c-5.89,0-10.664-4.781-10.664-10.656
+	c0-5.906,4.773-10.688,10.664-10.688C37.894,298.648,42.668,303.43,42.668,309.336z"/>
+<path style="fill:#4FC2E9;" d="M298.651,31.945c0,5.89-4.766,10.663-10.656,10.663c-5.889,0-10.654-4.773-10.654-10.663
+	c0-5.891,4.766-10.664,10.654-10.664C293.887,21.281,298.651,26.055,298.651,31.945z"/>
+<path style="fill:#FC6E51;" d="M341.34,95.998c0,5.891-4.781,10.664-10.688,10.664c-5.875,0-10.656-4.773-10.656-10.664
+	s4.781-10.664,10.656-10.664C336.557,85.334,341.34,90.107,341.34,95.998z"/>
+<path style="fill:#5D9CEC;" d="M426.65,181.332c0,5.89-4.766,10.663-10.656,10.663s-10.656-4.773-10.656-10.663
+	c0-5.891,4.766-10.672,10.656-10.672S426.65,175.441,426.65,181.332z"/>
+<g>
+	<path style="fill:#EC87C0;" d="M469.336,117.333c0,5.891-4.781,10.664-10.688,10.664c-5.875,0-10.656-4.773-10.656-10.664
+		s4.781-10.671,10.656-10.671C464.555,106.662,469.336,111.442,469.336,117.333z"/>
+	<path style="fill:#EC87C0;" d="M85.338,223.83c0,5.891-4.781,10.664-10.671,10.664s-10.664-4.773-10.664-10.664
+		c0-5.89,4.773-10.671,10.664-10.671S85.338,217.94,85.338,223.83z"/>
+</g>
+<polygon style="fill:#AC92EB;" points="226.96,326.305 161.524,371.49 168.43,292.274 89.252,284.837 145.47,228.58 89.612,171.98
+	168.828,165.027 162.414,85.764 227.569,131.356 273.607,66.514 294.215,143.325 371.15,123.247 337.573,195.323 409.431,229.408
+	337.371,263.033 370.493,335.336 293.682,314.773 272.591,391.443 "/>
+<path style="fill:#A0D468;" d="M74.667,128.013H64.003v-10.555c0-5.891-4.773-10.671-10.664-10.671s-10.671,4.78-10.671,10.671
+	v10.555H32.004c-5.89,0-10.664,4.773-10.664,10.664s4.773,10.663,10.664,10.663h10.664v10.672c0,5.891,4.781,10.664,10.671,10.664
+	s10.664-4.773,10.664-10.664V149.34h10.664c5.891,0,10.671-4.772,10.671-10.663S80.557,128.013,74.667,128.013z"/>
+<path style="fill:#ED5564;" d="M373.337,405.209H362.65v-10.562c0-5.875-4.766-10.656-10.654-10.656
+	c-5.891,0-10.656,4.781-10.656,10.656v10.562h-10.688c-5.875,0-10.656,4.781-10.656,10.672c0,5.89,4.781,10.671,10.656,10.671
+	h10.688v10.655c0,5.906,4.766,10.672,10.656,10.672c5.889,0,10.654-4.766,10.654-10.672v-10.655h10.688
+	c5.875,0,10.656-4.781,10.656-10.671C383.993,409.99,379.212,405.209,373.337,405.209z"/>
+<path style="fill:#A0D468;" d="M479.991,255.993h-10.656v-10.554c0-5.891-4.781-10.672-10.688-10.672
+	c-5.875,0-10.656,4.781-10.656,10.672v10.554h-10.656c-5.906,0-10.686,4.774-10.686,10.664c0,5.898,4.779,10.68,10.686,10.68h10.656
+	v10.656c0,5.89,4.781,10.655,10.656,10.655c5.906,0,10.688-4.766,10.688-10.655v-10.656h10.656c5.891,0,10.656-4.781,10.656-10.68
+	C490.647,260.767,485.883,255.993,479.991,255.993z"/>
+<path style="fill:#ED5564;" d="M437.336,42.554H426.65V32c0-5.891-4.766-10.664-10.656-10.664S405.337,26.109,405.337,32v10.554
+	H394.65c-5.875,0-10.656,4.773-10.656,10.664c0,5.898,4.781,10.672,10.656,10.672h10.688v10.663c0,5.891,4.766,10.664,10.656,10.664
+	s10.656-4.773,10.656-10.664V63.889h10.686c5.875,0,10.656-4.773,10.656-10.672C447.991,47.327,443.211,42.554,437.336,42.554z"/>
+<path style="fill:#48CFAD;" d="M223.999,21.219h-10.664V10.664C213.335,4.773,208.554,0,202.664,0S192,4.773,192,10.664v10.555
+	h-10.664c-5.891,0-10.671,4.781-10.671,10.672c0,5.89,4.781,10.663,10.671,10.663H192v10.664c0,5.898,4.773,10.672,10.664,10.672
+	s10.671-4.773,10.671-10.672V42.554h10.664c5.89,0,10.664-4.773,10.664-10.663C234.662,26,229.889,21.219,223.999,21.219z"/>
+<path style="fill:#F6BB42;" d="M239.842,214.847c-34.116,20.476-65.709,48.194-93.912,82.396
+	c-22.429,27.219-42.772,58.562-60.467,93.186C55.37,449.302,43.472,496.77,42.98,498.77h0.008c-0.195,0.812-0.32,1.672-0.32,2.562
+	c0,5.875,4.781,10.655,10.671,10.655c5.008,0,9.195-3.469,10.344-8.108h0.008c0.117-0.453,11.789-47.046,40.764-103.731
+	c17-33.266,36.491-63.311,57.936-89.342c26.648-32.312,56.397-58.443,88.427-77.662L239.842,214.847z"/>
+<path style="fill:#FFCE54;" d="M277.341,223.994c0,17.672-14.336,31.999-32.007,31.999s-32-14.327-32-31.999
+	c0-17.671,14.328-31.999,32-31.999S277.341,206.323,277.341,223.994z"/>
+</svg>
+          </div>
+          <h5 class="operations__header">
+            Congratulations! You've been selected to enjoy our services for free!
+          </h5>
+          <p>
+            Congratulations! You've been selected to enjoy our services for free as part of our exclusive trial phase. We are currently in the process of testing and refining our website to ensure it meets the highest standards of quality and user satisfaction. Your participation and feedback during this period are invaluable to us. Take full advantage of all our features and tools without any cost, and help us shape the future of bike management. Thank you for being a part of this exciting journey with us!
+          </p>
+        </div>
+        <div class="operations__content operations__content--3">
+          <div class="operations__icon operations__icon--3">
+            <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 viewBox="0 0 511.987 511.987" xml:space="preserve">
+<path style="fill:#5D9CEC;" d="M128.001,74.662c0,5.891-4.773,10.672-10.664,10.672s-10.672-4.781-10.672-10.672
+	c0-5.89,4.781-10.663,10.672-10.663S128.001,68.772,128.001,74.662z"/>
+<path style="fill:#4FC2E9;" d="M64.003,53.28c0,5.891-4.773,10.664-10.664,10.664S42.668,59.171,42.668,53.28
+	s4.781-10.672,10.671-10.672S64.003,47.389,64.003,53.28z"/>
+<path style="fill:#FC6E51;" d="M128.001,10.664c0,5.891-4.773,10.672-10.664,10.672s-10.672-4.781-10.672-10.672
+	S111.446,0,117.337,0C123.228,0,128.001,4.773,128.001,10.664z"/>
+<path style="fill:#4FC2E9;" d="M426.65,351.882c0,5.891-4.766,10.671-10.656,10.671s-10.656-4.78-10.656-10.671
+	s4.766-10.672,10.656-10.672S426.65,345.991,426.65,351.882z"/>
+<path style="fill:#EC87C0;" d="M255.998,415.928c0,5.905-4.773,10.671-10.664,10.671s-10.672-4.766-10.672-10.671
+	c0-5.875,4.781-10.656,10.672-10.656C251.224,405.271,255.998,410.053,255.998,415.928z"/>
+<path style="fill:#FC6E51;" d="M170.664,394.646c0,5.906-4.773,10.688-10.664,10.688c-5.89,0-10.664-4.781-10.664-10.688
+	c0-5.875,4.773-10.656,10.664-10.656S170.664,388.771,170.664,394.646z"/>
+<path style="fill:#5D9CEC;" d="M42.668,309.336c0,5.875-4.773,10.656-10.664,10.656c-5.89,0-10.664-4.781-10.664-10.656
+	c0-5.906,4.773-10.688,10.664-10.688C37.894,298.648,42.668,303.43,42.668,309.336z"/>
+<path style="fill:#4FC2E9;" d="M298.651,31.945c0,5.89-4.766,10.663-10.656,10.663c-5.889,0-10.654-4.773-10.654-10.663
+	c0-5.891,4.766-10.664,10.654-10.664C293.887,21.281,298.651,26.055,298.651,31.945z"/>
+<path style="fill:#FC6E51;" d="M341.34,95.998c0,5.891-4.781,10.664-10.688,10.664c-5.875,0-10.656-4.773-10.656-10.664
+	s4.781-10.664,10.656-10.664C336.557,85.334,341.34,90.107,341.34,95.998z"/>
+<path style="fill:#5D9CEC;" d="M426.65,181.332c0,5.89-4.766,10.663-10.656,10.663s-10.656-4.773-10.656-10.663
+	c0-5.891,4.766-10.672,10.656-10.672S426.65,175.441,426.65,181.332z"/>
+<g>
+	<path style="fill:#EC87C0;" d="M469.336,117.333c0,5.891-4.781,10.664-10.688,10.664c-5.875,0-10.656-4.773-10.656-10.664
+		s4.781-10.671,10.656-10.671C464.555,106.662,469.336,111.442,469.336,117.333z"/>
+	<path style="fill:#EC87C0;" d="M85.338,223.83c0,5.891-4.781,10.664-10.671,10.664s-10.664-4.773-10.664-10.664
+		c0-5.89,4.773-10.671,10.664-10.671S85.338,217.94,85.338,223.83z"/>
+</g>
+<polygon style="fill:#AC92EB;" points="226.96,326.305 161.524,371.49 168.43,292.274 89.252,284.837 145.47,228.58 89.612,171.98
+	168.828,165.027 162.414,85.764 227.569,131.356 273.607,66.514 294.215,143.325 371.15,123.247 337.573,195.323 409.431,229.408
+	337.371,263.033 370.493,335.336 293.682,314.773 272.591,391.443 "/>
+<path style="fill:#A0D468;" d="M74.667,128.013H64.003v-10.555c0-5.891-4.773-10.671-10.664-10.671s-10.671,4.78-10.671,10.671
+	v10.555H32.004c-5.89,0-10.664,4.773-10.664,10.664s4.773,10.663,10.664,10.663h10.664v10.672c0,5.891,4.781,10.664,10.671,10.664
+	s10.664-4.773,10.664-10.664V149.34h10.664c5.891,0,10.671-4.772,10.671-10.663S80.557,128.013,74.667,128.013z"/>
+<path style="fill:#ED5564;" d="M373.337,405.209H362.65v-10.562c0-5.875-4.766-10.656-10.654-10.656
+	c-5.891,0-10.656,4.781-10.656,10.656v10.562h-10.688c-5.875,0-10.656,4.781-10.656,10.672c0,5.89,4.781,10.671,10.656,10.671
+	h10.688v10.655c0,5.906,4.766,10.672,10.656,10.672c5.889,0,10.654-4.766,10.654-10.672v-10.655h10.688
+	c5.875,0,10.656-4.781,10.656-10.671C383.993,409.99,379.212,405.209,373.337,405.209z"/>
+<path style="fill:#A0D468;" d="M479.991,255.993h-10.656v-10.554c0-5.891-4.781-10.672-10.688-10.672
+	c-5.875,0-10.656,4.781-10.656,10.672v10.554h-10.656c-5.906,0-10.686,4.774-10.686,10.664c0,5.898,4.779,10.68,10.686,10.68h10.656
+	v10.656c0,5.89,4.781,10.655,10.656,10.655c5.906,0,10.688-4.766,10.688-10.655v-10.656h10.656c5.891,0,10.656-4.781,10.656-10.68
+	C490.647,260.767,485.883,255.993,479.991,255.993z"/>
+<path style="fill:#ED5564;" d="M437.336,42.554H426.65V32c0-5.891-4.766-10.664-10.656-10.664S405.337,26.109,405.337,32v10.554
+	H394.65c-5.875,0-10.656,4.773-10.656,10.664c0,5.898,4.781,10.672,10.656,10.672h10.688v10.663c0,5.891,4.766,10.664,10.656,10.664
+	s10.656-4.773,10.656-10.664V63.889h10.686c5.875,0,10.656-4.773,10.656-10.672C447.991,47.327,443.211,42.554,437.336,42.554z"/>
+<path style="fill:#48CFAD;" d="M223.999,21.219h-10.664V10.664C213.335,4.773,208.554,0,202.664,0S192,4.773,192,10.664v10.555
+	h-10.664c-5.891,0-10.671,4.781-10.671,10.672c0,5.89,4.781,10.663,10.671,10.663H192v10.664c0,5.898,4.773,10.672,10.664,10.672
+	s10.671-4.773,10.671-10.672V42.554h10.664c5.89,0,10.664-4.773,10.664-10.663C234.662,26,229.889,21.219,223.999,21.219z"/>
+<path style="fill:#F6BB42;" d="M239.842,214.847c-34.116,20.476-65.709,48.194-93.912,82.396
+	c-22.429,27.219-42.772,58.562-60.467,93.186C55.37,449.302,43.472,496.77,42.98,498.77h0.008c-0.195,0.812-0.32,1.672-0.32,2.562
+	c0,5.875,4.781,10.655,10.671,10.655c5.008,0,9.195-3.469,10.344-8.108h0.008c0.117-0.453,11.789-47.046,40.764-103.731
+	c17-33.266,36.491-63.311,57.936-89.342c26.648-32.312,56.397-58.443,88.427-77.662L239.842,214.847z"/>
+<path style="fill:#FFCE54;" d="M277.341,223.994c0,17.672-14.336,31.999-32.007,31.999s-32-14.327-32-31.999
+	c0-17.671,14.328-31.999,32-31.999S277.341,206.323,277.341,223.994z"/>
+</svg>
+          </div>
+          <h5 class="operations__header">
+            Congratulations! You've been selected to enjoy our services for free!"
+          </h5>
+          <p>
+            Congratulations! You've been selected to enjoy our services for free as part of our exclusive trial phase. We are currently in the process of testing and refining our website to ensure it meets the highest standards of quality and user satisfaction. Your participation and feedback during this period are invaluable to us. Take full advantage of all our features and tools without any cost, and help us shape the future of bike management. Thank you for being a part of this exciting journey with us!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section--3">
+      <div class="section__title section__title--testimonials">
+        <h2 class="section__description">Not sure yet?</h2>
+        <h3 class="section__header">
+          Bikey users are already making their lifes simpler.
+        </h3>
+      </div>
+
+      <div class="slider">
+        <div class="slide">
+          <div class="testimonial">
+            <h5 class="testimonial__header">Smoothest browsing experience ever!</h5>
+            <blockquote class="testimonial__text">
+            The website's sleek design and easy-to-navigate layout make it a breeze to find exactly what I need. Bikey offers a seamless browsing experience, ensuring swift access to essential details. The clear organization of information enhances usability, empowering users to make informed decisions effortlessly.
+            </blockquote>
+            <address class="testimonial__author">
+              <img src="{{ url_for('static', filename='img/screenshot2024_05_29.png') }}" alt="" class="testimonial__photo" />
+              <h6 class="testimonial__name">Duong Quy Trang</h6>
+              <p class="testimonial__location">Hanoi, Vietnam</p>
+            </address>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="testimonial">
+            <h5 class="testimonial__header">
+              Clear information, user-friendly interface, reliability
+            </h5>
+            <blockquote class="testimonial__text">
+              The website's informative layout not only provides clear details about the services offered but also educates users about their advantages and functionalities. The structured presentation and comprehensive descriptions aid understanding, empowering users to choose the best options for their needs. Bikey's user-friendly interface fosters trust and reliability.
+            </blockquote>
+            <address class="testimonial__author">
+              <img src="{{ url_for('static', filename='img/360156151_1860538761009161_3948443351578745148_n.jpg') }}" alt="" class="testimonial__photo" />
+              <h6 class="testimonial__name">Phan Thanh Hung</h6>
+              <p class="testimonial__location">Ho Chi Minh, Vietnam</p>
+            </address>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="testimonial">
+            <h5 class="testimonial__header">
+              Geofencing: Peace of mind, optimization
+            </h5>
+            <blockquote class="testimonial__text">
+              The geofencing feature of Bikey is fantastic! Being able to set boundaries and receive immediate alerts when a bike leaves the designated area has given me peace of mind when renting out bikes. This capability not only helps me protect assets but also optimizes my business operations. I couldn't be happier with this feature from Bikey!
+            </blockquote>
+            <address class="testimonial__author">
+              <img src="{{ url_for('static', filename='img/341009597_975028050531642_128996958547898957_n.jpg') }}" alt="" class="testimonial__photo" />
+              <h6 class="testimonial__name">Nguyen Vo Minh Khoi</h6>
+              <p class="testimonial__location">Binh Duong, Vietnam</p>
+            </address>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="testimonial">
+            <h5 class="testimonial__header">
+              Geofencing: Peace of mind, optimization
+            </h5>
+            <blockquote class="testimonial__text">
+              This app is amazing and definitely worth every penny. The features are incredibly useful, and the user-friendly interface makes it a pleasure to use. I believe it's so valuable that charging a fee in the future would be fully justified.
+            </blockquote>
+            <address class="testimonial__author">
+              <img src="{{ url_for('static', filename='img/341009597_975028050531642_128996958547898957_n.jpg') }}" alt="" class="testimonial__photo" />
+              <h6 class="testimonial__name">Nguyen Vo Minh Khoi</h6>
+              <p class="testimonial__location">Binh Duong, Vietnam</p>
+            </address>
+          </div>
+        </div>
+
+        <button class="slider__btn slider__btn--left">&larr;</button>
+        <button class="slider__btn slider__btn--right">&rarr;</button>
+        <div class="dots"></div>
+      </div>
+    </section>
+
+    <section class="section section--sign-up" id="footer">
+      <div class="section__title">
+        <h3 class="section__header">
+          The best day to join Bankist was one year ago. The second best is
+          today!
+        </h3>
+      </div>
+      <button class="btn btn--show-modal" onclick="location.href='{{ url_for('login') }}'">Login or Register</button>
+
+    </section>
+
+    <footer class="footer">
+      <div>
+        <h2 style=color:aliceblue>
+        <h2>Contact Us:</h2>
+        <ul>
+          <li>
+              <img class='contactimg' src="{{ url_for('static', filename='img/facebook.png') }}" alt="Facebook Icon">
+              <a href="https://www.facebook.com/candyhappy.trang/">Facebook</a>
+          </li>
+          <li>
+              <img class='contactimg' src="{{ url_for('static', filename='img/Logo-Zalo-Arc.webp') }}" alt="Zalo Icon">
+              Zalo: 0984089598
+          </li>
+          <li>
+              <img class='contactimg' src="{{ url_for('static', filename='img/112-gmail_email_mail-512.webp') }}" alt="Email Icon">
+              <a href="mailto:quytrang601@gmail.com">Email</a>
+          </li>
+      </ul>
+      </h2>
+      </div>
+      <img class="footer__image" src="{{ url_for('static', filename='img/logobikey.png') }}" alt="Image"  >
+      <p class="footer__copyright">
+        <strong> Group 4 multi-disciplinary project </strong>
+      </p>
+    </footer>
+
+
+    <div class="modal hidden">
+      <button class="btn--close-modal">&times;</button>
+      <h2 class="modal__header">
+        Open your bank account <br />
+        in just <span class="highlight">5 minutes</span>
+      </h2>
+      <form class="modal__form">
+        <label>First Name</label>
+        <input type="text" />
+        <label>Last Name</label>
+        <input type="text" />
+        <label>Email Address</label>
+        <input type="email" />
+        <button class="btn">Next step &rarr;</button>
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
+
+    <!-- <script src="script.js"></script> -->
+  </body>
+</html>oter">
+      <div>
+        <h2 style=color:aliceblue>
+        <h2>Contact Us:</h2>
+        <ul>
+          <li>
+              <img class='contactimg' src="{{ url_for('static', filename='img/facebook.png') }}" alt="Facebook Icon">
+              <a href="https://www.facebook.com/candyhappy.trang/">Facebook</a>
+          </li>
+          <li>
+              <img class='contactimg' src="{{ url_for('static', filename='img/Logo-Zalo-Arc.webp') }}" alt="Zalo Icon">
+              Zalo: 0984089598
+          </li>
+          <li>
+              <img class='contactimg' src="{{ url_for('static', filename='img/112-gmail_email_mail-512.webp') }}" alt="Email Icon">
+              <a href="mailto:quytrang601@gmail.com">Email</a>
+          </li>
+      </ul>
+      </h2>
+      </div>
+      <img class="footer__image" src="{{ url_for('static', filename='img/logobikey.png') }}" alt="Image"  >
+      <p class="footer__copyright">
+        <strong> Group 4 multi-disciplinary project </strong>
+      </p>
+    </footer>
+
+
+    <div class="modal hidden">
+      <button class="btn--close-modal">&times;</button>
+      <h2 class="modal__header">
+        Open your bank account <br />
+        in just <span class="highlight">5 minutes</span>
+      </h2>
+      <form class="modal__form">
+        <label>First Name</label>
+        <input type="text" />
+        <label>Last Name</label>
+        <input type="text" />
+        <label>Email Address</label>
+        <input type="email" />
+        <button class="btn">Next step &rarr;</button>
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
+
+    <!-- <script src="script.js"></script> -->
+  </body>
+</html>
