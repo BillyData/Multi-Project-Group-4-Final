@@ -72,6 +72,9 @@ class App {
   #workout1;
   #workout2;
   #workout3;
+  #prevCircle;
+  #prevCircleColor;
+  #prevRangeValue;
 
   constructor() {
     // Get user's position
@@ -124,23 +127,65 @@ class App {
       [90, 180]    // North-East corner (lat, lng)
     ];
 
-// Create a large rectangle that covers the entire map view and beyond
-//     const largeRectangle = L.rectangle(largeBounds, {
-//       // color: 'red',
-//       // fillColor: 'red',
-//       fillOpacity: 0.5
-//     }).addTo(this.#map);
 
+    const colorButtons = document.querySelectorAll('.color-btn');
 
-    var circle = L.circle([11.10827316868071, 106.6142366115691], {
-      color: 'lightgreen',
-      fillColor: 'lightgreen',
-      fillOpacity: 0.5,
-      radius: 5000,
+    let chosenColor;
+
+    this.#prevCircle = L.circle([11.10827316868071, 106.6142366115691], {
+                    color: chosenColor ? chosenColor : 'green',
+                    fillColor: chosenColor ? chosenColor : 'green',
+                    fillOpacity: 0.5,
+                    radius: this.#prevRangeValue ? this.#prevRangeValue : 5000,
     }).addTo(this.#map);
 
-    // Bring the circle to the front to ensure it is displayed on top of the rectangle
-    circle.bringToFront();
+    // Add event listener to each color button
+    colorButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+               chosenColor = event.target.getAttribute('data-color');
+               console.log('Chosen color:', chosenColor);
+
+               if (this.#prevCircle) {
+                   this.#map.removeLayer(this.#prevCircle)
+               }
+
+               this.#prevCircleColor = chosenColor
+
+                this.#prevCircle = L.circle([11.10827316868071, 106.6142366115691], {
+                    color: chosenColor ? chosenColor : 'green',
+                    fillColor: chosenColor ? chosenColor : 'green',
+                    fillOpacity: 0.5,
+                    radius: this.#prevRangeValue ? this.#prevRangeValue : 5000,
+                }).addTo(this.#map);
+
+                // Bring the circle to the front to ensure it is displayed on top of the rectangle
+                this.#prevCircle.bringToFront();
+        }.bind(this));
+    });
+
+    const rangeSlider = document.getElementById('range-slider');
+    rangeSlider.addEventListener('input', function(event) {
+        const rangeValue = event.target.value;
+        const rangeValueSpan = document.getElementById('range-value');
+        rangeValueSpan.textContent = rangeValue;
+        console.log('Range value:', rangeValue);
+
+        if (this.#prevCircle) {
+            this.#map.removeLayer(this.#prevCircle)
+        }
+
+        this.#prevRangeValue = rangeValue;
+
+        this.#prevCircle = L.circle([11.10827316868071, 106.6142366115691], {
+            color: this.#prevCircleColor ? this.#prevCircleColor : 'green',
+            fillColor: this.#prevCircleColor ? this.#prevCircleColor : 'green',
+            fillOpacity: 0.5,
+            radius: rangeValue,
+        }).addTo(this.#map);
+
+        // Bring the circle to the front to ensure it is displayed on top of the rectangle
+        this.#prevCircle.bringToFront();
+    }.bind(this));
   }
 
   _renderWorkoutMarker(workout) {
@@ -467,4 +512,3 @@ function fetchData() {
 // Start the periodic data fetching
 fetchData();
 
-// have to delete previous markers, previous cache, previous workouts
