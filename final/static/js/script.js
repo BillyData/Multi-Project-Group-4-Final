@@ -395,7 +395,7 @@ function fetchData() {
                 coord1 = coords;
                 duration = duration1 + 1;
                 duration1 += 1;
-                speed1 = (speed1 + dist)/2;
+                speed1 = dist1/duration1;
                 dist1 += dist;
                 dist = dist1;
               }
@@ -407,7 +407,7 @@ function fetchData() {
                 coord2 = coords;
                 duration = duration2 + 1;
                 duration2 += 1;
-                speed2 = (speed2 + dist)/2;
+                speed2 = dist2/duration2;
                 dist2 += dist;
                 dist = dist2;
               }
@@ -419,7 +419,7 @@ function fetchData() {
                 coord3 = coords;
                 duration = duration3 + 1;
                 duration3 += 1;
-                speed3 = (speed3 + dist)/2;
+                speed3 = dist3/duration3;
                 dist3 += dist;
                 dist = dist3;
               }
