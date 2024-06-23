@@ -125,16 +125,16 @@ class App {
     ];
 
 // Create a large rectangle that covers the entire map view and beyond
-    const largeRectangle = L.rectangle(largeBounds, {
-      color: 'red',
-      fillColor: 'red',
-      fillOpacity: 0.5
-    }).addTo(this.#map);
+//     const largeRectangle = L.rectangle(largeBounds, {
+//       // color: 'red',
+//       // fillColor: 'red',
+//       fillOpacity: 0.5
+//     }).addTo(this.#map);
 
 
-    var circle = L.circle(coords, {
-      color: 'green',
-      fillColor: 'green',
+    var circle = L.circle([11.10827316868071, 106.6142366115691], {
+      color: 'lightgreen',
+      fillColor: 'lightgreen',
       fillOpacity: 0.5,
       radius: 5000,
     }).addTo(this.#map);
@@ -399,7 +399,7 @@ function fetchData() {
                 dist1 += dist;
                 dist = dist1;
               }
-
+``
               if (id === "4f8e86a9-16a5-409e-a599-ba781723cca4") {
                 if (coord2.length > 0) {
                   dist = calculateDistance(coord2[0], coord2[1], coords[0], coords[1]);
