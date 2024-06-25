@@ -75,6 +75,7 @@ class App {
   #prevCircle;
   #prevCircleColor;
   #prevRangeValue;
+  #red = false;
 
   constructor() {
     // Get user's position
@@ -95,6 +96,38 @@ class App {
             alert('Could not get your position');
           }
       );
+  }
+
+  _redCircle(circleCenterToUser) {
+      if (circleCenterToUser * 1000 > this.#prevRangeValue) {
+          if (this.#prevCircle) {
+              this.#map.removeLayer(this.#prevCircle);
+          }
+
+          this.#red = true;
+
+
+          this.#prevCircle = L.circle([11.1069158, 106.6148259], {
+              color: 'red',
+              fillColor: 'red',
+              fillOpacity: 0.5,
+              radius: this.#prevRangeValue,
+          }).addTo(this.#map);
+      } else {
+          this.#red = false;
+
+          if (this.#prevCircle) {
+              this.#map.removeLayer(this.#prevCircle);
+          }
+
+          this.#prevCircle = L.circle([11.1069158, 106.6148259], {
+              color: this.#prevCircleColor ? this.#prevCircleColor : 'green',
+              fillColor: this.#prevCircleColor ? this.#prevCircleColor : 'green',
+              fillOpacity: 0.5,
+              radius: this.#prevRangeValue,
+          }).addTo(this.#map);
+
+      }
   }
 
   _loadMap(position) {
@@ -132,7 +165,8 @@ class App {
 
     let chosenColor;
 
-    this.#prevCircle = L.circle([11.10827316868071, 106.6142366115691], {
+
+    this.#prevCircle = L.circle([11.1069158, 106.6148259], {
                     color: chosenColor ? chosenColor : 'green',
                     fillColor: chosenColor ? chosenColor : 'green',
                     fillOpacity: 0.5,
@@ -145,21 +179,23 @@ class App {
                chosenColor = event.target.getAttribute('data-color');
                console.log('Chosen color:', chosenColor);
 
-               if (this.#prevCircle) {
-                   this.#map.removeLayer(this.#prevCircle)
+               if (!this.#red) {
+                   if (this.#prevCircle) {
+                       this.#map.removeLayer(this.#prevCircle)
+                   }
+
+                   this.#prevCircleColor = chosenColor
+
+                   this.#prevCircle = L.circle([11.1069158, 106.6148259], {
+                       color: chosenColor ? chosenColor : 'green',
+                       fillColor: chosenColor ? chosenColor : 'green',
+                       fillOpacity: 0.5,
+                       radius: this.#prevRangeValue ? this.#prevRangeValue : 5000,
+                   }).addTo(this.#map);
+
+                   // Bring the circle to the front to ensure it is displayed on top of the rectangle
+                   this.#prevCircle.bringToFront();
                }
-
-               this.#prevCircleColor = chosenColor
-
-                this.#prevCircle = L.circle([11.10827316868071, 106.6142366115691], {
-                    color: chosenColor ? chosenColor : 'green',
-                    fillColor: chosenColor ? chosenColor : 'green',
-                    fillOpacity: 0.5,
-                    radius: this.#prevRangeValue ? this.#prevRangeValue : 5000,
-                }).addTo(this.#map);
-
-                // Bring the circle to the front to ensure it is displayed on top of the rectangle
-                this.#prevCircle.bringToFront();
         }.bind(this));
     });
 
@@ -176,7 +212,7 @@ class App {
 
         this.#prevRangeValue = rangeValue;
 
-        this.#prevCircle = L.circle([11.10827316868071, 106.6142366115691], {
+        this.#prevCircle = L.circle([11.1069158, 106.6148259], {
             color: this.#prevCircleColor ? this.#prevCircleColor : 'green',
             fillColor: this.#prevCircleColor ? this.#prevCircleColor : 'green',
             fillOpacity: 0.5,
@@ -383,6 +419,7 @@ let speed3 = 0;
 let duration1 = 0;
 let duration2 = 0;
 let duration3 = 0;
+const orginalCoords = [11.1069158, 106.6148259];
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
   const R = 6371; // Radius of the Earth in km
@@ -418,7 +455,9 @@ function fetchData() {
 
         app.workouts = [];
 
-        datas.forEach(data => {
+        const originalCoords = [11.1069158, 106.6148259];
+
+          datas.forEach(data => {
           const id = data[0];
           const properties = data[1];
           let lat, lng;
@@ -432,7 +471,14 @@ function fetchData() {
             if (property.name === "Gps") {
               lat = property.last_value.lat;
               lng = property.last_value.lon;
-              coords = [lat, lng];
+              // coords = [lat, lng];
+              coords = [11.131630, 106.615824];
+              let circleCenterToUser = calculateDistance(coords[0], coords[1], originalCoords[0], originalCoords[1]);
+
+              console.log(circleCenterToUser);
+
+              app._redCircle(circleCenterToUser);
+
               if (id === "bbad631b-2f73-42ac-ae87-a3772c197a23") {
                 if (coord1.length > 0) {
                   dist = calculateDistance(coord1[0], coord1[1], coords[0], coords[1]);
