@@ -106,7 +106,6 @@ class App {
 
           this.#red = true;
 
-
           this.#prevCircle = L.circle([11.1069158, 106.6148259], {
               color: 'red',
               fillColor: 'red',
@@ -165,6 +164,7 @@ class App {
 
     let chosenColor;
 
+    this.#prevRangeValue = 5000;
 
     this.#prevCircle = L.circle([11.1069158, 106.6148259], {
                     color: chosenColor ? chosenColor : 'green',
@@ -471,8 +471,8 @@ function fetchData() {
             if (property.name === "Gps") {
               lat = property.last_value.lat;
               lng = property.last_value.lon;
-              // coords = [lat, lng];
-              coords = [11.131630, 106.615824];
+              coords = [lat, lng];
+              // coords = [11.131630, 106.615824];
               let circleCenterToUser = calculateDistance(coords[0], coords[1], originalCoords[0], originalCoords[1]);
 
               console.log(circleCenterToUser);
