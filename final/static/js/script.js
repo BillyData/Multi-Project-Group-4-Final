@@ -3,6 +3,7 @@
 class Workout {
   date = new Date();
   clicks = 0;
+  bikeNumber;
 
   constructor(coords, distance, duration, id) {
     // this.date = ...
@@ -17,7 +18,7 @@ class Workout {
     // prettier-ignore
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-    this.description = `${this.type[0].toUpperCase()}${this.type.slice(1)} on ${
+    this.description = `${this.bikeNumber[0].toUpperCase()}${this.bikeNumber.slice(1)} on ${
         months[this.date.getMonth()]
     } ${this.date.getDate()}`;
   }
@@ -36,7 +37,22 @@ class Cycling extends Workout {
     this.isOnline = isOnline;
     // this.type = 'cycling';
     this.calcSpeed();
+    this._setBikeNumber();
     this._setDescription();
+  }
+
+  _setBikeNumber() {
+     if (this.id === "bbad631b-2f73-42ac-ae87-a3772c197a23") {
+         this.bikeNumber = "Bike 1";
+     }
+
+     if (this.id === "4f8e86a9-16a5-409e-a599-ba781723cca4") {
+         this.bikeNumber = "Bike 2";
+     }
+
+     if (this.id === "473e551a-8e4b-4500-867e-0d6b4c8e97ff") {
+         this.bikeNumber = "Bike 3";
+     }
   }
 
   calcSpeed() {
@@ -89,6 +105,7 @@ class App {
   }
 
   _getPosition() {
+    console.log(navigator.geolocation);
     if (navigator.geolocation)
       navigator.geolocation.getCurrentPosition(
           this._loadMap.bind(this),

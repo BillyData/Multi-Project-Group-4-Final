@@ -1,11 +1,75 @@
 body {
   height: 100vh;
-  background: rgb(247, 246, 244) !important;
+  background: rgb(255, 255, 255) !important;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: 'Poppins', sans-serif;
 }
+
+
+.backgroundpicture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Places the background behind other content */
+}
+
+.backgroundpicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the whole area */
+  filter: blur(10px); /* Applies the blur effect */
+}
+
+.highlight {
+  position: relative;
+}
+
+.highlight::after {
+  display: block;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.7;
+  transform: scale(1.07, 1.05) skewX(-15deg);
+  background-image: var(linear-gradient(to top left, #39b385, #9be15d));
+}
+
+
+.custom-card {
+  width: 100%; /* Make the card take up 90% of the width of its container */
+  max-width: 1400px; /* Increase the maximum width */
+  min-height: 750px; /* Increase the minimum height */
+  padding: 20px;
+  margin: auto;
+  /* background: rgba(255, 255, 255, 0.8); */
+  border-radius: 30px;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  opacity: 80%;
+  /* filter: blur(2 px); */
+}
+
+.custom-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.custom-card .form-input input,
+.custom-card .btn {
+  height: 45px;
+}
+
 
 .card {
   overflow: hidden;
@@ -17,17 +81,19 @@ body {
 }
 
 .img-left {
-  width: 65%;
+  width: 60%;
   background: url('../img/exploring-sustainable-transport.png') center;
-  background-size: 120%; 
+  background-size: 120%;
   background-repeat: no-repeat
 }
 
 .card-body {
-  margin-top: -1rem; 
-  padding: 1rem 2rem; 
-  margin-left: -60px; 
+  margin-top: -1rem; /* Maintain the original margin-top */
+  padding: 2rem 2rem; /* Increase padding to 2rem on top and bottom, and keep 2rem on left and right */
+  margin-left: -60px; /* Maintain the original margin-left */
+  height: 110%; /* Increase the height to 110% of the parent element's height */
 }
+
 .title{
   margin-bottom: 2rem;
 }
@@ -115,10 +181,27 @@ body {
 }
 
 .form-box .btn-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: white;
-  width: 100px;
-  border: 1px solid black; /* Add this line */
+  width: 400px;
+  border: 1px solid black;
+  border-radius: 20px;
 }
+
+.form-box .btn-google .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Adjust the gap between text and icon as needed */
+}
+
+.form-box .btn-google svg {
+  display: block;
+}
+
+
 
 .form-box .btn-linkedin {
   background: white;
