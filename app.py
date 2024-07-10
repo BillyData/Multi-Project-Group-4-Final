@@ -177,6 +177,7 @@ def linkedin_authorized():
     session['oauth_user'] = user_info.data['localizedFirstName'] + ' ' + user_info.data['localizedLastName']
     return redirect(url_for('index'))
 
+
 @google.tokengetter
 def get_google_oauth_token():
     return session.get('google_token')

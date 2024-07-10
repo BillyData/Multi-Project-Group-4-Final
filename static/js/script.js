@@ -75,6 +75,9 @@ const inputDistance = document.querySelector('.form__input--distance');
 const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
+const alertBox = document.querySelector('.alert-error')
+const hide = document.querySelector('.hide')
+const homebtn = document.querySelector('.landing-btn');
 
 class App {
   #map;
@@ -92,6 +95,10 @@ class App {
   #prevCircleColor;
   #prevRangeValue;
   #red = false;
+  #allPlayerHasEnteredBack = true;
+  #cycler1 = false;
+  #cycler2 = false;
+  #cycler3 = false;
 
   constructor() {
     // Get user's position
@@ -102,6 +109,11 @@ class App {
 
     // Attach event handlers
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
+    homebtn.addEventListener('click', this._redirectToLandingPage);
+  }
+
+  _redirectToLandingPage() {
+      window.location.href = "/";
   }
 
   _getPosition() {
@@ -115,7 +127,7 @@ class App {
       );
   }
 
-  _redCircle(circleCenterToUser) {
+  _redCircle(circleCenterToUser, id) {
       if (circleCenterToUser * 1000 > this.#prevRangeValue) {
           if (this.#prevCircle) {
               this.#map.removeLayer(this.#prevCircle);
@@ -129,7 +141,34 @@ class App {
               fillOpacity: 0.5,
               radius: this.#prevRangeValue,
           }).addTo(this.#map);
+
+          if (this.#allPlayerHasEnteredBack) {
+              alertBox.classList.remove('hidden');
+          }
+
+          hide.addEventListener('click', function() {
+              alertBox.classList.add('hidden');
+              this.#allPlayerHasEnteredBack = false;
+          }.bind(this));
+
       } else {
+          if (id === "bbad631b-2f73-42ac-ae87-a3772c197a23") {
+             this.#cycler1 = true;
+          }
+
+          if (id === "4f8e86a9-16a5-409e-a599-ba781723cca4") {
+              this.#cycler2 = true;
+          }
+
+          if (id === "473e551a-8e4b-4500-867e-0d6b4c8e97ff") {
+              this.#cycler3 = true;
+          }
+
+          if (this.#cycler1 && this.#cycler2 && this.#cycler3) {
+              this.#allPlayerHasEnteredBack = true;
+              alertBox.classList.add('hidden');
+          }
+
           this.#red = false;
 
           if (this.#prevCircle) {
@@ -142,7 +181,6 @@ class App {
               fillOpacity: 0.5,
               radius: this.#prevRangeValue,
           }).addTo(this.#map);
-
       }
   }
 
@@ -488,13 +526,13 @@ function fetchData() {
             if (property.name === "Gps") {
               lat = property.last_value.lat;
               lng = property.last_value.lon;
-              coords = [lat, lng];
-              // coords = [11.131630, 106.615824];
+              // coords = [lat, lng];
+              coords = [11.131630, 106.615824];
               let circleCenterToUser = calculateDistance(coords[0], coords[1], originalCoords[0], originalCoords[1]);
 
               console.log(circleCenterToUser);
 
-              app._redCircle(circleCenterToUser);
+              app._redCircle(circleCenterToUser, id);
 
               if (id === "bbad631b-2f73-42ac-ae87-a3772c197a23") {
                 if (coord1.length > 0) {

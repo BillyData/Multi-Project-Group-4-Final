@@ -1,7 +1,7 @@
 :root {
   --color-brand--1: #ffb545;
   --color-brand--2: #00c46a;
-
+  --color-brand--3: red;
   --color-dark--1: #2d3439;
   --color-dark--2: #42484d;
   --color-light--1: #aaa;
@@ -42,19 +42,30 @@ a:visited {
 
 /* SIDEBAR */
 .sidebar {
-  flex-basis: 20rem; /* Further reduced from 30rem to 20rem */
+  flex-basis: 20rem; /* Width of sidebar */
   background-color: lightgrey;
-  padding: 1rem 3rem; /* Reduced padding: top-bottom 1rem, left-right 3rem */
+  padding: 1rem 3rem; /* Padding: top-bottom 1rem, left-right 3rem */
   display: flex;
   flex-direction: column;
-  opacity: 0.7; /* Changed to 0.7 for consistency */
+  opacity: 0.7; /* Opacity */
   z-index: 2;
-  border-radius: 20px; /* Maintained border-radius */
-  margin-left: 5rem; /* Added margin to move sidebar to the right */
-  margin-bottom: 20rem;
-  margin-top: 20rem;
-  transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.5s ease-in-out; /* Added transition */
+  border-radius: 20px; /* Border radius */
+  margin-left: 5%; /* Margin to move sidebar to the right */
+  margin-bottom: 10%; /* Adjusted margin */
+  margin-top: 10%; /* Adjusted margin */
+  transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.5s ease-in-out; /* Transition effects */
 }
+
+/* Example media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .sidebar {
+      flex-basis: 100%; /* Full width on smaller screens */
+      margin: 0 auto; /* Center-align on smaller screens */
+      margin-top: 5%; /* Adjusted margin */
+      margin-bottom: 5%; /* Adjusted margin */
+  }
+}
+
 
 .sidebar:hover {
   opacity: 1; /* Fully opaque on hover */
@@ -67,7 +78,7 @@ a:visited {
   width: 200px; /* Adjust width as needed */
   height: auto; /* Maintain aspect ratio */
   margin: 0 auto 4rem; /* Center horizontally with bottom margin */
-  margin-right: 9rem; /* Shift the logo 1rem to the right */
+  margin-right: 7rem; /* Shift the logo 1rem to the right */
 }
 
 
@@ -81,6 +92,70 @@ a:visited {
 .workouts::-webkit-scrollbar {
   width: 0;
 }
+
+
+.alert-error {
+  min-height: 50px;
+  width: 400px;
+  max-width: 95%;
+  border-radius: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 3;
+  background: red;
+  transition: opacity 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.alert-error .icon__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert-error svg {
+  margin-right: 10px;
+}
+
+.alert-error p {
+  color: #fff;
+  font-family: Verdana;
+  margin: 0;
+  font-size: 2rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.alert-error a {
+  color: #fff;
+  font-family: Verdana;
+  font-size: 1.75rem;
+}
+
+.alert-error:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* Adjust hover effect as needed */
+/* .notify:hover {
+  background-color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+} */
+
 
 .workout {
   background-color: #eeecec;
@@ -105,6 +180,11 @@ a:visited {
 
 .workout--cycling {
   border-left: 5px solid var(--color-brand--1);
+}
+
+/* alert for khoi */
+.workout--alert {
+  border-left: 5px solid var(--color-brand--3);
 }
 
 .workout__title {
