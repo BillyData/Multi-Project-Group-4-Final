@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_oauthlib.client import OAuth
 import os
 
+
 secret_key = secrets.token_hex(16)
 app = Flask(__name__)
 app.secret_key = secret_key

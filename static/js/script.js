@@ -95,6 +95,9 @@ class App {
   #prevCircleColor;
   #prevRangeValue;
   #red = false;
+  #red1 = false;
+  #red2 = false;
+  #red3 = false;
   #allPlayerHasEnteredBack = true;
   #cycler1 = false;
   #cycler2 = false;
@@ -133,6 +136,18 @@ class App {
               this.#map.removeLayer(this.#prevCircle);
           }
 
+          if (id === "bbad631b-2f73-42ac-ae87-a3772c197a23") {
+              this.#red1 = true;
+          }
+
+          if (id === "4f8e86a9-16a5-409e-a599-ba781723cca4") {
+              this.#red2 = true;
+          }
+
+          if (id === "473e551a-8e4b-4500-867e-0d6b4c8e97ff") {
+              this.#red3 = true;
+          }
+
           this.#red = true;
 
           this.#prevCircle = L.circle([11.1069158, 106.6148259], {
@@ -153,14 +168,17 @@ class App {
 
       } else {
           if (id === "bbad631b-2f73-42ac-ae87-a3772c197a23") {
-             this.#cycler1 = true;
+              this.#red1 = false;
+              this.#cycler1 = true;
           }
 
           if (id === "4f8e86a9-16a5-409e-a599-ba781723cca4") {
+              this.#red2 = false;
               this.#cycler2 = true;
           }
 
           if (id === "473e551a-8e4b-4500-867e-0d6b4c8e97ff") {
+              this.#red3 = false;
               this.#cycler3 = true;
           }
 
@@ -345,11 +363,25 @@ class App {
     }
   }
 
-  _renderWorkout(workout) {
-    // Remove the current marker if it exists
+  _renderWorkout(workout, id) {
+      // Remove the current marker if it exists
+
+      let yes = false;
+
+      if (id === "bbad631b-2f73-42ac-ae87-a3772c197a23" && this.#red1) {
+          yes = true;
+      }
+
+      if (id === "4f8e86a9-16a5-409e-a599-ba781723cca4" && this.#red2) {
+          yes = true;
+      }
+
+      if (id === "473e551a-8e4b-4500-867e-0d6b4c8e97ff" && this.#red3) {
+          yes = true;
+      }
 
       let html = `
-      <li class="workout workout--${workout.isOnline ? "running":"cycling"}" data-id="${workout.id}">
+      <li class="workout workout--${workout.isOnline ? "running":"cycling"} ${yes ? "workout--alert" : ""}" data-id="${workout.id}">
         <h2 class="workout__title">${workout.description}</h2>
         <div class="workout__details">
           <span class="workout__icon">🚴‍♀️</span>
@@ -596,7 +628,7 @@ function fetchData() {
           })
           const apiTest = new Cycling(coords, dist.toFixed(3), (duration/60).toFixed(2), batteryLevel, id, isOnline);
           app.workouts.push(apiTest);
-          app._renderWorkout(apiTest);
+          app._renderWorkout(apiTest, id);
           app._renderWorkoutMarker(apiTest);
         });
         app._setLocalStorage();

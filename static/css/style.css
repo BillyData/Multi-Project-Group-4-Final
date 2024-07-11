@@ -98,7 +98,7 @@ a:visited {
   min-height: 50px;
   width: 400px;
   max-width: 95%;
-  border-radius: 12px;
+  border-radius: 25px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
@@ -110,7 +110,7 @@ a:visited {
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 3;
-  background: red;
+  background: rgb(234, 45, 45);
   transition: opacity 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 
@@ -175,16 +175,16 @@ a:visited {
 }
 
 .workout--running {
-  border-left: 5px solid var(--color-brand--2);
+  border: 3.5px solid var(--color-brand--2);
 }
 
 .workout--cycling {
-  border-left: 5px solid var(--color-brand--1);
+  border: 3.5px solid var(--color-brand--1);
 }
 
 /* alert for khoi */
 .workout--alert {
-  border-left: 5px solid var(--color-brand--3);
+  border: 3.5px solid var(--color-brand--3);
 }
 
 .workout__title {
