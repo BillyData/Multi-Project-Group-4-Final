@@ -99,9 +99,6 @@ class App {
   #red2 = false;
   #red3 = false;
   #allPlayerHasEnteredBack = true;
-  #cycler1 = false;
-  #cycler2 = false;
-  #cycler3 = false;
 
   constructor() {
     // Get user's position
@@ -131,7 +128,11 @@ class App {
   }
 
   _redCircle(circleCenterToUser, id) {
+      console.log(circleCenterToUser * 1000 > this.#prevRangeValue);
+
+
       if (circleCenterToUser * 1000 > this.#prevRangeValue) {
+          console.log("It does enter into here");
           if (this.#prevCircle) {
               this.#map.removeLayer(this.#prevCircle);
           }
@@ -150,12 +151,18 @@ class App {
 
           this.#red = true;
 
+          if (this.#prevCircle) {
+              this.#map.removeLayer(this.#prevCircle);
+          }
+
           this.#prevCircle = L.circle([11.1069158, 106.6148259], {
               color: 'red',
               fillColor: 'red',
               fillOpacity: 0.5,
               radius: this.#prevRangeValue,
           }).addTo(this.#map);
+
+          console.log(this.#prevCircle)
 
           if (this.#allPlayerHasEnteredBack) {
               alertBox.classList.remove('hidden');
@@ -169,36 +176,33 @@ class App {
       } else {
           if (id === "bbad631b-2f73-42ac-ae87-a3772c197a23") {
               this.#red1 = false;
-              this.#cycler1 = true;
           }
 
           if (id === "4f8e86a9-16a5-409e-a599-ba781723cca4") {
               this.#red2 = false;
-              this.#cycler2 = true;
           }
 
           if (id === "473e551a-8e4b-4500-867e-0d6b4c8e97ff") {
               this.#red3 = false;
-              this.#cycler3 = true;
           }
 
-          if (this.#cycler1 && this.#cycler2 && this.#cycler3) {
+          if (!this.#red1 && !this.#red2 && !this.#red3) {
               this.#allPlayerHasEnteredBack = true;
               alertBox.classList.add('hidden');
+
+              this.#red = false;
+
+              if (this.#prevCircle) {
+                  this.#map.removeLayer(this.#prevCircle);
+              }
+
+              this.#prevCircle = L.circle([11.1069158, 106.6148259], {
+                  color: this.#prevCircleColor ? this.#prevCircleColor : 'green',
+                  fillColor: this.#prevCircleColor ? this.#prevCircleColor : 'green',
+                  fillOpacity: 0.5,
+                  radius: this.#prevRangeValue,
+              }).addTo(this.#map);
           }
-
-          this.#red = false;
-
-          if (this.#prevCircle) {
-              this.#map.removeLayer(this.#prevCircle);
-          }
-
-          this.#prevCircle = L.circle([11.1069158, 106.6148259], {
-              color: this.#prevCircleColor ? this.#prevCircleColor : 'green',
-              fillColor: this.#prevCircleColor ? this.#prevCircleColor : 'green',
-              fillOpacity: 0.5,
-              radius: this.#prevRangeValue,
-          }).addTo(this.#map);
       }
   }
 
@@ -558,8 +562,8 @@ function fetchData() {
             if (property.name === "Gps") {
               lat = property.last_value.lat;
               lng = property.last_value.lon;
-              // coords = [lat, lng];
-              coords = [11.131630, 106.615824];
+              coords = [lat, lng];
+              // coords = [11.131630, 106.615824];
               let circleCenterToUser = calculateDistance(coords[0], coords[1], originalCoords[0], originalCoords[1]);
 
               console.log(circleCenterToUser);
